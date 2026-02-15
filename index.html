@@ -6,25 +6,6 @@
   <title>Page Turner Book Club — Free Books</title>
   <meta name="description" content="Free books. Support authors. Fuel your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
 
-  <!-- OPTIONAL: Meta Pixel (paste your real snippet here) -->
-  <!--
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-  /></noscript>
-  -->
-
   <style>
     :root{
       --bg:#0b0f14;
@@ -47,9 +28,10 @@
     body{
       margin:0;
       font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      background: radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
-                  radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
+        var(--bg);
       color: var(--text);
     }
 
@@ -59,12 +41,8 @@
       padding: 22px 18px 54px;
     }
 
-    /* Top band (NOW uses paper tile) */
     .top-band{
-      background:
-        url("assets/paper-tile.jpg") repeat,
-        rgba(232,224,214,.92);
-      background-size: 420px auto; /* tweak: 300 stronger / 600 softer */
+      background: rgba(232,224,214,.92);
       color: var(--ink);
       border-radius: 18px;
       border: 1px solid rgba(0,0,0,.08);
@@ -78,11 +56,8 @@
       justify-content:space-between;
       padding: 16px 18px;
       gap: 16px;
-      /* subtle “paper grain” lift without changing your layout */
-      background: linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,0));
     }
 
-    /* Logo smaller + controlled */
     .logo{
       width: 88px;
       height: auto;
@@ -90,7 +65,6 @@
       display:block;
     }
 
-    /* Bigger, centered top text */
     .top-copy{
       flex: 1 1 auto;
       text-align:center;
@@ -101,7 +75,6 @@
       margin: 0;
     }
 
-    /* keep spacing tight at top */
     .top-spacer{
       width: 88px;
       flex: 0 0 auto;
@@ -112,8 +85,9 @@
       position:relative;
       border-top: 1px solid rgba(0,0,0,.08);
       background:
-        linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.25) 55%, rgba(0,0,0,.55)),
-        url("assets/banner.jpg") center/cover no-repeat; /* UPDATED to banner.jpg */
+        /* LIGHTER overlay so banner stays visible */
+        linear-gradient(90deg, rgba(0,0,0,.35), rgba(0,0,0,.12) 55%, rgba(0,0,0,.28)),
+        url("assets/banner.jpg") center/cover no-repeat;
       padding: 26px 20px 22px;
     }
 
@@ -202,9 +176,10 @@
       text-shadow: 0 6px 18px rgba(0,0,0,.35);
     }
 
+    /* Airtable embed styling */
     .airtable-embed{
       width: 100%;
-      height: 340px;
+      height: 380px; /* good desktop height; mobile increased below */
       border: none;
       border-radius: 14px;
       overflow:hidden;
@@ -217,14 +192,10 @@
       color: rgba(243,240,234,.78);
     }
 
-    /* Bottom quote + social */
     .bottom{
       padding: 18px 18px 20px;
       text-align:center;
-      background:
-        url("assets/paper-tile.jpg") repeat,
-        rgba(232,224,214,.92);
-      background-size: 420px auto;
+      background: rgba(232,224,214,.92);
       color: var(--ink);
       border-top: 1px solid rgba(0,0,0,.08);
     }
@@ -268,7 +239,6 @@
       fill: rgba(0,0,0,.75);
     }
 
-    /* Mobile */
     @media (max-width: 920px){
       .top-copy{font-size: 28px}
       .hero-grid{grid-template-columns: 1fr; min-height: unset}
@@ -283,31 +253,23 @@
       .hero-h1{font-size: 44px}
       .genres{font-size: 18px}
       .btn-primary{width: 100%}
-      .airtable-embed{height: 380px}
+      .airtable-embed{height: 520px} /* mobile needs more vertical room */
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-
     <section class="top-band">
       <div class="top-inner">
-        <!-- Logo -->
         <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
-
-        <!-- Big, centered top line -->
         <p class="top-copy">Free books. Support authors.<br/>Fuel your next binge.</p>
-
-        <!-- spacer to keep centered text truly centered -->
         <div class="top-spacer"></div>
       </div>
 
-      <!-- Hero -->
       <div class="hero">
         <div class="hero-grid">
 
-          <!-- Left: headline + CTA -->
           <div class="hero-left">
             <h1 class="hero-h1"><span>Get Free Books</span></h1>
             <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
@@ -327,14 +289,14 @@
             </div>
           </div>
 
-          <!-- Right: Airtable Form Embed (3 REAL fields, secure) -->
           <aside class="card" aria-label="Join the mailing list form">
             <h2>Join the mailing list</h2>
 
             <iframe
               class="airtable-embed"
-              src="PASTE_YOUR_AIRTABLE_FORM_EMBED_URL_HERE"
+              src="https://airtable.com/embed/apprQvd2jQf2hjdeK/shrbjWRI6bzsTaFVz"
               title="Page Turner Book Club Mailing List"
+              loading="lazy"
             ></iframe>
 
             <p class="note">No spam. Leave anytime.</p>
@@ -343,10 +305,8 @@
         </div>
       </div>
 
-      <!-- Bottom quote + social -->
       <div class="bottom">
         <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
-
         <p class="social-line">CLICK ICON TO FOLLOW for weekly deals:</p>
 
         <div class="icons">
@@ -367,7 +327,6 @@
   </div>
 
   <script>
-    // Optional: Track primary CTA click (Meta Pixel)
     const freebiesBtn = document.getElementById("freebiesBtn");
     if (freebiesBtn) {
       freebiesBtn.addEventListener("click", () => {
