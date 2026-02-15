@@ -348,41 +348,63 @@
   <span class="arrow-down">↓</span>
 </p>
 
-          <!-- Bottom-right form -->
-          <div class="form-wrap">
-            <aside class="card" aria-label="Join the mailing list form">
-              <h2>Free Offers Every Month</h2>
+          <form class="custom-form" method="POST" action="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE">
+  
+  <!-- redirect after submit -->
+  <input type="hidden" name="redirect" value="thankyou.html" />
 
-              <!-- Google Apps Script Web App endpoint (Option B) -->
-              <form class="custom-form" method="POST" action="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE">
-                <!-- optional redirect after submit -->
-                <input type="hidden" name="redirect" value="thankyou.html" />
+  <input name="first" type="text" placeholder="First Name" required />
 
-                <input name="first" type="text" placeholder="First Name" required />
-                <input name="last" type="text" placeholder="Last Name" required />
-                <select name="country" required>
-  <option value="" disabled selected>Country</option>
-  <option value="United States">United States</option>
-  <option value="Canada">Canada</option>
-  <option value="United Kingdom">United Kingdom</option>
-  <option value="Australia">Australia</option>
-  <option value="New Zealand">New Zealand</option>
-  <option value="Ireland">Ireland</option>
-  <option value="South Africa">South Africa</option>
-  <option value="Other">Other</option>
-</select>
+  <input name="last" type="text" placeholder="Last Name" required />
 
-                <input name="email" type="email" placeholder="Email Address" required />
+  <select name="country" required>
+    <option value="" disabled selected>Select Country</option>
 
-                <button type="submit">Join the Club</button>
-              </form>
+    <option value="United States">United States</option>
+    <option value="Canada">Canada</option>
+    <option value="United Kingdom">United Kingdom</option>
+    <option value="Australia">Australia</option>
+    <option value="New Zealand">New Zealand</option>
+    <option value="Ireland">Ireland</option>
+    <option value="South Africa">South Africa</option>
 
-              <p class="note">No spam. Leave anytime.</p>
-            </aside>
-          </div>
+    <option value="Afghanistan">Afghanistan</option>
+    <option value="Argentina">Argentina</option>
+    <option value="Austria">Austria</option>
+    <option value="Belgium">Belgium</option>
+    <option value="Brazil">Brazil</option>
+    <option value="Chile">Chile</option>
+    <option value="China">China</option>
+    <option value="Colombia">Colombia</option>
+    <option value="Denmark">Denmark</option>
+    <option value="Finland">Finland</option>
+    <option value="France">France</option>
+    <option value="Germany">Germany</option>
+    <option value="Greece">Greece</option>
+    <option value="India">India</option>
+    <option value="Israel">Israel</option>
+    <option value="Italy">Italy</option>
+    <option value="Japan">Japan</option>
+    <option value="Mexico">Mexico</option>
+    <option value="Netherlands">Netherlands</option>
+    <option value="Norway">Norway</option>
+    <option value="Philippines">Philippines</option>
+    <option value="Poland">Poland</option>
+    <option value="Portugal">Portugal</option>
+    <option value="Spain">Spain</option>
+    <option value="Sweden">Sweden</option>
+    <option value="Switzerland">Switzerland</option>
+    <option value="Turkey">Turkey</option>
+    <option value="United Arab Emirates">United Arab Emirates</option>
 
-        </div>
-      </div>
+    <option value="Other">Other</option>
+  </select>
+
+  <input name="email" type="email" placeholder="Email Address" required />
+
+  <button type="submit">Join the Club</button>
+
+</form>
 
       <div class="bottom">
         <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
