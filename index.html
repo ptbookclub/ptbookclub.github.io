@@ -7,6 +7,18 @@
   <meta name="description" content="Free books. Support authors. Fuel your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
 
   <style>
+
+
+    /* Honeypot: invisible to humans, bait for bots */
+.hp-field{
+  position:absolute !important;
+  left:-9999px !important;
+  top:auto !important;
+  width:1px !important;
+  height:1px !important;
+  overflow:hidden !important;
+}
+
     :root{
       --bg:#0b0f14;
       --text:#f3f0ea;
@@ -435,6 +447,11 @@
 
                   <option value="Other">Other</option>
                 </select>
+                <div class="hp-field" aria-hidden="true">
+  <label>Leave this empty</label>
+  <input type="text" name="company" tabindex="-1" autocomplete="off" />
+</div>
+
 
                 <button type="submit">Join the Club</button>
               </form>
