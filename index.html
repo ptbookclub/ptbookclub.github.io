@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Turner Book Club — Free Books</title>
+  <meta name="description" content="Free books. Support authors. Fuel your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
+
+  <!-- OPTIONAL: Meta Pixel (paste your real snippet here) -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+  -->
+
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --text:#f3f0ea;
+      --muted:#cfc6b8;
+      --paper:#e7e0d7;
+      --ink:#2b2620;
+      --gold:#d9b25f;
+      --gold2:#f0d28a;
+      --red:#b3161b;
+      --red2:#7f0f13;
+      --border:rgba(255,255,255,.14);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:18px;
+      --max: 1080px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      background: radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
+                  radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+
+    /* Top band */
+    .top-band{
+      background: rgba(232,224,214,.92);
+      color: var(--ink);
+      border-radius: 18px;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      overflow: hidden;
+    }
+
+    .top-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 16px 18px;
+      gap: 16px;
+    }
+
+    /* Logo smaller + controlled */
+    .logo{
+      width: 88px;   /* smaller */
+      height: auto;
+      flex: 0 0 auto;
+      display:block;
+    }
+
+    /* Bigger, centered top text */
+    .top-copy{
+      flex: 1 1 auto;
+      text-align:center;
+      font-size: 34px;   /* bigger */
+      line-height: 1.15;
+      letter-spacing: .2px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* keep spacing tight at top */
+    .top-spacer{
+      width: 88px;
+      flex: 0 0 auto;
+    }
+
+    /* Hero section (image background) */
+    .hero{
+      position:relative;
+      border-top: 1px solid rgba(0,0,0,.08);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.25) 55%, rgba(0,0,0,.55)),
+        url("assets/banner.png") center/cover no-repeat;
+      padding: 26px 20px 22px; /* less dead space */
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: end;
+      min-height: 560px;
+    }
+
+    .hero-left{
+      padding: 6px 4px 0;
+    }
+
+    .hero-h1{
+      margin: 0 0 6px;
+      font-size: 62px;
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: .3px;
+      text-shadow: 0 8px 24px rgba(0,0,0,.55);
+    }
+
+    /* no period after this */
+    .hero-h1 span{display:inline-block}
+
+    .genres{
+      margin: 0 0 18px;
+      font-size: 20px;
+      color: rgba(243,240,234,.9);
+      letter-spacing: .6px;
+      text-shadow: 0 6px 20px rgba(0,0,0,.45);
+    }
+
+    .cta{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      align-items:flex-start;
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 16px 18px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 16px 40px rgba(179,22,27,.30);
+      max-width: 620px;
+      width: fit-content;
+    }
+
+    .btn-primary:hover{filter: brightness(1.06)}
+    .btn-primary:active{transform: translateY(1px)}
+
+    .subline{
+      margin: 10px 0 0;      /* moved down a smidge */
+      font-size: 20px;
+      color: rgba(243,240,234,.92);
+      text-shadow: 0 6px 18px rgba(0,0,0,.45);
+    }
+
+    /* Form card */
+    .card{
+      background: rgba(15,16,18,.55);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      padding: 16px 16px 12px;
+    }
+
+    .card h2{
+      margin: 4px 0 10px;
+      font-size: 34px;
+      font-weight: 700;
+      color: rgba(243,240,234,.95);
+      text-shadow: 0 6px 18px rgba(0,0,0,.35);
+    }
+
+    .airtable-embed{
+      width: 100%;
+      height: 340px; /* adjust after you embed your form */
+      border: none;
+      border-radius: 14px;
+      overflow:hidden;
+      background: rgba(255,255,255,.04);
+    }
+
+    .note{
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: rgba(243,240,234,.78);
+    }
+
+    /* Bottom quote + social */
+    .bottom{
+      padding: 18px 18px 20px;
+      text-align:center;
+      background: rgba(232,224,214,.92);
+      color: var(--ink);
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+
+    .quote{
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    .social-line{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .icons{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+    }
+
+    .icon-btn{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      background: rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+    }
+
+    .icon-btn:hover{background: rgba(0,0,0,.12)}
+
+    .icon{
+      width: 22px;
+      height: 22px;
+      fill: rgba(0,0,0,.75);
+    }
+
+    /* Mobile */
+    @media (max-width: 920px){
+      .top-copy{font-size: 28px}
+      .hero-grid{grid-template-columns: 1fr; min-height: unset}
+      .hero-h1{font-size: 54px}
+      .card{margin-top: 8px}
+    }
+
+    @media (max-width: 520px){
+      .logo{width: 76px}
+      .top-spacer{width: 76px}
+      .top-copy{font-size: 24px}
+      .hero-h1{font-size: 44px}
+      .genres{font-size: 18px}
+      .btn-primary{width: 100%}
+      .airtable-embed{height: 380px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <section class="top-band">
+      <div class="top-inner">
+        <!-- Logo -->
+        <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
+
+        <!-- Big, centered top line -->
+        <p class="top-copy">Free books. Support authors.<br/>Fuel your next binge.</p>
+
+        <!-- spacer to keep centered text truly centered -->
+        <div class="top-spacer"></div>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-grid">
+
+          <!-- Left: headline + CTA -->
+          <div class="hero-left">
+            <h1 class="hero-h1"><span>Get Free Books</span></h1>
+            <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
+
+            <div class="cta">
+              <a
+                class="btn-primary"
+                href="PASTE_BOOKFUNNEL_URL_HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="freebiesBtn"
+              >
+                TAKE ME TO THIS MONTH'S FREEBIES →
+              </a>
+
+              <p class="subline">Join the club for other free offers.</p>
+            </div>
+          </div>
+
+          <!-- Right: Airtable Form Embed (3 REAL fields, secure) -->
+          <aside class="card" aria-label="Join the mailing list form">
+            <h2>Join the mailing list</h2>
+
+            <!-- Replace the src with your Airtable *embed* URL -->
+            <!-- In Airtable Form view: Share form → Embed this form → copy the URL -->
+            <iframe
+              class="airtable-embed"
+              src="PASTE_YOUR_AIRTABLE_FORM_EMBED_URL_HERE"
+              title="Page Turner Book Club Mailing List"
+            ></iframe>
+
+            <p class="note">No spam. Leave anytime.</p>
+          </aside>
+
+        </div>
+      </div>
+
+      <!-- Bottom quote + social -->
+      <div class="bottom">
+        <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
+
+        <p class="social-line">CLICK ICON TO FOLLOW for weekly deals:</p>
+
+        <div class="icons">
+          <a class="icon-btn" href="PASTE_INSTAGRAM_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
+            </svg>
+          </a>
+
+          <a class="icon-btn" href="PASTE_FACEBOOK_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Optional: Track primary CTA click (Meta Pixel)
+    const freebiesBtn = document.getElementById("freebiesBtn");
+    if (freebiesBtn) {
+      freebiesBtn.addEventListener("click", () => {
+        // fbq('trackCustom', 'MonthlyFreebiesClick');
+      });
+    }
+  </script>
+</body>
+</html>
