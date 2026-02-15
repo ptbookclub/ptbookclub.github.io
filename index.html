@@ -6,37 +6,16 @@
   <title>Page Turner Book Club — Free Books</title>
   <meta name="description" content="Free books. Support authors. Fuel your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
 
-  <!-- OPTIONAL: Meta Pixel (paste your real snippet here) -->
-  <!--
-  <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'YOUR_PIXEL_ID');
-    fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
-  /></noscript>
-  -->
-
   <style>
     :root{
       --bg:#0b0f14;
       --text:#f3f0ea;
-      --muted:#cfc6b8;
-      --paper:#e7e0d7;
       --ink:#2b2620;
-      --gold:#d9b25f;
-      --gold2:#f0d28a;
+      --paper:#efe6d8;
+      --paper2:#e6dccd;
+      --paperBorder: rgba(0,0,0,.10);
       --red:#b3161b;
       --red2:#7f0f13;
-      --border:rgba(255,255,255,.14);
       --shadow: 0 18px 60px rgba(0,0,0,.55);
       --radius:18px;
       --max: 1080px;
@@ -47,9 +26,10 @@
     body{
       margin:0;
       font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
-      background: radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
-                  radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
-                  var(--bg);
+      background:
+        radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
+        var(--bg);
       color: var(--text);
     }
 
@@ -59,17 +39,32 @@
       padding: 22px 18px 54px;
     }
 
-    /* Top band */
+    /* Paper container */
     .top-band{
-      background: rgba(232,224,214,.92);
+      background:
+        linear-gradient(0deg, rgba(239,230,216,.94), rgba(239,230,216,.94));
       color: var(--ink);
       border-radius: 18px;
-      border: 1px solid rgba(0,0,0,.08);
+      border: 1px solid var(--paperBorder);
       box-shadow: 0 10px 40px rgba(0,0,0,.25);
       overflow: hidden;
+      position: relative;
+    }
+
+    /* subtle paper grain (no image needed) */
+    .top-band:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+      background-size: 6px 6px;
+      opacity:.25;
+      pointer-events:none;
+      mix-blend-mode:multiply;
     }
 
     .top-inner{
+      position:relative;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -78,7 +73,7 @@
     }
 
     .logo{
-      width: 88px;
+      width: 132px; /* ~50% bigger */
       height: auto;
       flex: 0 0 auto;
       display:block;
@@ -87,71 +82,61 @@
     .top-copy{
       flex: 1 1 auto;
       text-align:center;
-      font-size: 34px;
-      line-height: 1.15;
+      font-size: 36px;
+      line-height: 1.12;
       letter-spacing: .2px;
       font-weight: 600;
       margin: 0;
+      color: var(--ink);
     }
 
-    .top-spacer{
-      width: 88px;
-      flex: 0 0 auto;
-    }
+    .top-spacer{ width: 132px; flex: 0 0 auto; }
 
-    /* Hero section (image background) */
+    /* Hero */
     .hero{
       position:relative;
       border-top: 1px solid rgba(0,0,0,.08);
       background:
-        linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.25) 55%, rgba(0,0,0,.55)),
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.22) 40%, rgba(0,0,0,.55)),
         url("assets/banner.jpg") center/cover no-repeat;
-      padding: 26px 20px 22px;
+      padding: 18px 20px 18px;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      align-items: end;
+    /* Layout: text top-centered, form bottom-right */
+    .hero-inner{
+      position:relative;
       min-height: 560px;
+      display:flex;
+      flex-direction:column;
     }
 
-    .hero-left{
-      padding: 6px 4px 0;
+    .hero-text{
+      text-align:center;
+      padding-top: 34px;
     }
 
     .hero-h1{
-      margin: 0 0 6px;
-      font-size: 62px;
+      margin: 0 0 10px;
+      font-size: 66px;
       line-height: 1.02;
       font-weight: 700;
       letter-spacing: .3px;
-      text-shadow: 0 8px 24px rgba(0,0,0,.55);
+      color: rgba(245,232,210,.98);
+      text-shadow: 0 10px 30px rgba(0,0,0,.55);
     }
-
-    .hero-h1 span{display:inline-block}
 
     .genres{
       margin: 0 0 18px;
       font-size: 20px;
-      color: rgba(243,240,234,.9);
+      color: rgba(243,240,234,.92);
       letter-spacing: .6px;
-      text-shadow: 0 6px 20px rgba(0,0,0,.45);
-    }
-
-    .cta{
-      display:flex;
-      flex-direction:column;
-      gap: 12px;
-      align-items:flex-start;
+      text-shadow: 0 8px 22px rgba(0,0,0,.45);
     }
 
     .btn-primary{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      gap: 10px;
       padding: 16px 18px;
       border-radius: 999px;
       color: #fff;
@@ -163,82 +148,90 @@
       border: 1px solid rgba(255,255,255,.18);
       box-shadow: 0 16px 40px rgba(179,22,27,.30);
       max-width: 620px;
-      width: fit-content;
+      width: min(620px, 100%);
     }
 
     .btn-primary:hover{filter: brightness(1.06)}
     .btn-primary:active{transform: translateY(1px)}
 
     .subline{
-      margin: 10px 0 0;
+      margin: 14px 0 0;
       font-size: 20px;
       color: rgba(243,240,234,.92);
       text-shadow: 0 6px 18px rgba(0,0,0,.45);
     }
 
-    /* ===== FORM CARD (UPDATED ONLY) ===== */
+    .arrow-down{
+      margin-top: 6px;
+      font-size: 34px;
+      color: rgba(243,240,234,.92);
+      text-shadow: 0 6px 18px rgba(0,0,0,.45);
+      user-select:none;
+    }
+
+    /* Form card bottom-right */
+    .form-wrap{
+      margin-top:auto;
+      display:flex;
+      justify-content:flex-end;
+      padding: 12px 0 6px;
+    }
+
     .card{
-      position: relative;
+      width: min(380px, 100%);
+      background:
+        linear-gradient(0deg, rgba(239,230,216,.92), rgba(239,230,216,.92));
+      border: 1px solid rgba(255,255,255,.35);
       border-radius: 18px;
       box-shadow: var(--shadow);
-      padding: 16px 16px 12px;
-
-      /* paper color + subtle “texture” overlay (no image needed) */
-      background:
-        radial-gradient(120% 90% at 10% 0%, rgba(255,255,255,.35), transparent 55%),
-        radial-gradient(120% 90% at 90% 20%, rgba(0,0,0,.10), transparent 60%),
-        linear-gradient(0deg, rgba(255,255,255,.06), rgba(255,255,255,.06)),
-        rgba(232,224,214,.92);
-
-      border: 1px solid rgba(0,0,0,.12);
       backdrop-filter: blur(8px);
-      overflow: hidden;
+      padding: 16px 16px 12px;
     }
-
-    /* faint grain */
-    .card::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      opacity:.18;
-      background-image:
-        repeating-linear-gradient(0deg, rgba(0,0,0,.04), rgba(0,0,0,.04) 1px, transparent 1px, transparent 3px),
-        repeating-linear-gradient(90deg, rgba(0,0,0,.03), rgba(0,0,0,.03) 1px, transparent 1px, transparent 4px);
-      mix-blend-mode:multiply;
-    }
-
-    .card > *{ position: relative; z-index: 1; }
 
     .card h2{
-      margin: 6px 0 10px;
-      font-size: 30px;
+      margin: 4px 0 12px;
+      font-size: 28px;
       font-weight: 700;
-      color: rgba(43,38,32,.95);
-      text-shadow: 0 6px 18px rgba(0,0,0,.08);
+      color: #2b2620;
     }
 
-    /* Airtable embed wrapper so it feels like it belongs */
-    .form-frame{
-      border-radius: 14px;
-      overflow: hidden;               /* prevents inner scrollbars from showing edges */
-      background: rgba(255,255,255,.18);
-      border: 1px solid rgba(0,0,0,.14);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+    /* Pretty form */
+    .custom-form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
     }
 
-    /* IMPORTANT: remove Airtable’s default border */
-    .airtable-embed{
-      width: 100%;
-      border: none !important;
-      display: block;
-      background: transparent;
+    .custom-form input{
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.15);
+      background: rgba(255,255,255,.50);
+      color:#2b2620;
+      font-size:16px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      outline:none;
     }
 
-    /* height tuned so fields + submit are visible without scrolling */
-    .airtable-embed{
-      height: 540px;
+    .custom-form input::placeholder{
+      color: rgba(43,38,32,.65);
     }
+
+    .custom-form button{
+      padding:12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      font-weight:800;
+      letter-spacing:.6px;
+      cursor:pointer;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      color:white;
+      text-transform:uppercase;
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    .custom-form button:hover{ filter: brightness(1.06); }
+    .custom-form button:active{ transform: translateY(1px); }
 
     .note{
       margin: 10px 0 0;
@@ -246,14 +239,27 @@
       color: rgba(43,38,32,.75);
     }
 
-    /* Bottom quote + social */
+    /* Footer */
     .bottom{
+      position:relative;
       padding: 18px 18px 20px;
       text-align:center;
-      background: rgba(232,224,214,.92);
+      background: rgba(239,230,216,.94);
       color: var(--ink);
       border-top: 1px solid rgba(0,0,0,.08);
     }
+
+    .bottom:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+      background-size: 6px 6px;
+      opacity:.25;
+      pointer-events:none;
+      mix-blend-mode:multiply;
+    }
+
+    .bottom > *{ position:relative; }
 
     .quote{
       margin: 0 0 14px;
@@ -276,49 +282,49 @@
     }
 
     .icon-btn{
-      width: 44px;
-      height: 44px;
+      width: 48px;
+      height: 48px;
       border-radius: 14px;
       display:grid;
       place-items:center;
-      background: rgba(0,0,0,.08);
-      border: 1px solid rgba(0,0,0,.12);
       text-decoration:none;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 10px 18px rgba(0,0,0,.12);
     }
 
-    .icon-btn:hover{background: rgba(0,0,0,.12)}
+    .ig{ background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+    .fb{ background: #1877f2; }
 
     .icon{
-      width: 22px;
-      height: 22px;
-      fill: rgba(0,0,0,.75);
+      width: 24px;
+      height: 24px;
+      fill: #fff;
     }
 
     /* Mobile */
     @media (max-width: 920px){
       .top-copy{font-size: 28px}
-      .hero-grid{grid-template-columns: 1fr; min-height: unset}
       .hero-h1{font-size: 54px}
-      .card{margin-top: 8px}
-      .airtable-embed{height: 560px;}
+      .form-wrap{justify-content:center}
+      .card{max-width: 420px}
     }
 
     @media (max-width: 520px){
-      .logo{width: 76px}
-      .top-spacer{width: 76px}
+      .logo{width: 118px}
+      .top-spacer{width: 118px}
       .top-copy{font-size: 24px}
       .hero-h1{font-size: 44px}
       .genres{font-size: 18px}
-      .btn-primary{width: 100%}
-      .airtable-embed{height: 600px;}
+      .hero{padding: 14px 14px 14px}
+      .hero-inner{min-height: 620px}
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-
     <section class="top-band">
+
       <div class="top-inner">
         <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
         <p class="top-copy">Free books. Support authors.<br/>Fuel your next binge.</p>
@@ -326,63 +332,57 @@
       </div>
 
       <div class="hero">
-        <div class="hero-grid">
+        <div class="hero-inner">
 
-          <div class="hero-left">
-            <h1 class="hero-h1"><span>Get Free Books</span></h1>
+          <!-- Top-centered hero text -->
+          <div class="hero-text">
+            <h1 class="hero-h1">Get Free Books</h1>
             <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
 
-            <div class="cta">
-              <a
-                class="btn-primary"
-                href="PASTE_BOOKFUNNEL_URL_HERE"
-                target="_blank"
-                rel="noopener noreferrer"
-                id="freebiesBtn"
-              >
-                TAKE ME TO THIS MONTH'S FREEBIES →
-              </a>
+            <a class="btn-primary" href="PASTE_BOOKFUNNEL_URL_HERE" target="_blank" rel="noopener noreferrer">
+              TAKE ME TO THIS MONTH'S FREEBIES →
+            </a>
 
-              <p class="subline">Join the club for other free offers.</p>
-            </div>
+            <p class="subline">Join the club for other free offers.</p>
+            <div class="arrow-down">↓</div>
           </div>
 
-          <!-- FORM: only this section changed -->
-          <aside class="card" aria-label="Join the mailing list form">
-            <h2>Join the mailing list</h2>
+          <!-- Bottom-right form -->
+          <div class="form-wrap">
+            <aside class="card" aria-label="Join the mailing list form">
+              <h2>Join the mailing list</h2>
 
-            <div class="form-frame">
-              <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
-              <iframe
-                class="airtable-embed airtable-dynamic-height"
-                src="https://airtable.com/embed/apprQvd2jQf2hjdeK/shrbjWRI6bzsTaFVz"
-                frameborder="0"
-                onmousewheel=""
-                width="100%"
-                height="540"
-                style="background: transparent;"
-                title="Page Turner Book Club Mailing List"
-              ></iframe>
-            </div>
+              <!-- Google Apps Script Web App endpoint (Option B) -->
+              <form class="custom-form" method="POST" action="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE">
+                <!-- optional redirect after submit -->
+                <input type="hidden" name="redirect" value="thankyou.html" />
 
-            <p class="note">No spam. Leave anytime.</p>
-          </aside>
+                <input name="first" type="text" placeholder="First Name" required />
+                <input name="last" type="text" placeholder="Last Name" required />
+                <input name="email" type="email" placeholder="Email Address" required />
+
+                <button type="submit">SUBMIT</button>
+              </form>
+
+              <p class="note">No spam. Leave anytime.</p>
+            </aside>
+          </div>
 
         </div>
       </div>
 
       <div class="bottom">
         <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
-        <p class="social-line">CLICK ICON TO FOLLOW for weekly deals:</p>
+        <p class="social-line">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</p>
 
         <div class="icons">
-          <a class="icon-btn" href="PASTE_INSTAGRAM_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a class="icon-btn ig" href="PASTE_INSTAGRAM_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
             </svg>
           </a>
 
-          <a class="icon-btn" href="PASTE_FACEBOOK_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a class="icon-btn fb" href="PASTE_FACEBOOK_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
             </svg>
@@ -392,14 +392,5 @@
 
     </section>
   </div>
-
-  <script>
-    const freebiesBtn = document.getElementById("freebiesBtn");
-    if (freebiesBtn) {
-      freebiesBtn.addEventListener("click", () => {
-        // fbq('trackCustom', 'MonthlyFreebiesClick');
-      });
-    }
-  </script>
 </body>
 </html>
