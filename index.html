@@ -41,8 +41,7 @@
 
     /* Paper container */
     .top-band{
-      background:
-        linear-gradient(0deg, rgba(239,230,216,.94), rgba(239,230,216,.94));
+      background: linear-gradient(0deg, rgba(239,230,216,.94), rgba(239,230,216,.94));
       color: var(--ink);
       border-radius: 18px;
       border: 1px solid var(--paperBorder);
@@ -55,8 +54,7 @@
     .top-band:before{
       content:"";
       position:absolute; inset:0;
-      background-image:
-        radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
       background-size: 6px 6px;
       opacity:.25;
       pointer-events:none;
@@ -73,7 +71,7 @@
     }
 
     .logo{
-      width: 132px; /* ~50% bigger */
+      width: 132px;
       height: auto;
       flex: 0 0 auto;
       display:block;
@@ -102,7 +100,6 @@
       padding: 18px 20px 18px;
     }
 
-    /* Layout: text top-centered, form bottom-right */
     .hero-inner{
       position:relative;
       min-height: 560px;
@@ -162,11 +159,13 @@
     }
 
     .arrow-down{
-      margin-top: 6px;
+      display:inline-block;
+      margin-left: 8px;
       font-size: 34px;
       color: rgba(243,240,234,.92);
       text-shadow: 0 6px 18px rgba(0,0,0,.45);
       user-select:none;
+      transform: translateY(2px);
     }
 
     /* Form card bottom-right */
@@ -179,8 +178,7 @@
 
     .card{
       width: min(380px, 100%);
-      background:
-        linear-gradient(0deg, rgba(239,230,216,.92), rgba(239,230,216,.92));
+      background: linear-gradient(0deg, rgba(239,230,216,.92), rgba(239,230,216,.92));
       border: 1px solid rgba(255,255,255,.35);
       border-radius: 18px;
       box-shadow: var(--shadow);
@@ -195,65 +193,51 @@
       color: #2b2620;
     }
 
-    /* Pretty form */
     .custom-form{
       display:flex;
       flex-direction:column;
       gap:12px;
     }
 
-  .custom-form input,
-.custom-form select{
-  padding:12px 14px;
-  border-radius:10px;
-  border:1px solid rgba(0,0,0,.15);
-  background: rgba(255,255,255,.50);
-  color:#2b2620;
-  font-size:16px;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  outline:none;
-  height: 44px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-}
-
-.custom-form input::placeholder{
-  color: rgba(43,38,32,.65);
-}
-
-/* dropdown arrow */
-.custom-form select{
-  background-image:
-    linear-gradient(45deg, transparent 50%, rgba(43,38,32,.75) 50%),
-    linear-gradient(135deg, rgba(43,38,32,.75) 50%, transparent 50%);
-  background-position:
-    calc(100% - 18px) 18px,
-    calc(100% - 12px) 18px;
-  background-size: 6px 6px, 6px 6px;
-  background-repeat: no-repeat;
-  padding-right: 36px;
-}
-
-/* Make the placeholder ("Select Country") match the input placeholder color */
-.custom-form select.country-select:invalid{
-  color: rgba(43,38,32,.65);
-}
-
-/* Once they pick a real country, switch to normal text color */
-.custom-form select.country-select{
-  color:#2b2620;
-}
-
-/* Safari/Chrome sometimes ignore select:invalid color unless we set this too */
-.custom-form select.country-select option{
-  color:#2b2620;
-}
+    .custom-form input,
+    .custom-form select{
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.15);
+      background: rgba(255,255,255,.50);
+      color:#2b2620;
+      font-size:16px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      outline:none;
+      height: 44px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
 
     .custom-form input::placeholder{
       color: rgba(43,38,32,.65);
     }
 
+    /* dropdown arrow */
+    .custom-form select{
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(43,38,32,.75) 50%),
+        linear-gradient(135deg, rgba(43,38,32,.75) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) 18px,
+        calc(100% - 12px) 18px;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 36px;
+    }
+
+    /* ✅ Reliable placeholder color for the select */
+    .custom-form select.country-select:invalid{
+      color: rgba(43,38,32,.65);
+    }
+
+    /* button */
     .custom-form button{
       padding:12px;
       border-radius:999px;
@@ -371,7 +355,6 @@
       <div class="hero">
         <div class="hero-inner">
 
-          <!-- Top-centered hero text -->
           <div class="hero-text">
             <h1 class="hero-h1">Get Free Books</h1>
             <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
@@ -380,99 +363,84 @@
               TAKE ME TO THIS MONTH'S FREEBIES →
             </a>
 
-          <p class="subline with-arrow">
-  Join the club and mailing list for other free offers.
-  <span class="arrow-down">↓</span>
-</p>
-</div> <!-- closes .hero-text -->
+            <p class="subline">
+              Join the club and mailing list for other free offers.
+              <span class="arrow-down">↓</span>
+            </p>
+          </div>
 
-<div class="bottom">
-  <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
-  <p class="social-line">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</p>
+          <!-- Bottom-right form -->
+          <div class="form-wrap">
+            <aside class="card" aria-label="Join the mailing list form">
+              <h2>Free Offers Every Month</h2>
 
-  <div class="icons">
-    <a class="icon-btn ig" href="https://www.instagram.com/pageturnerbc/?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
-      </svg>
-    </a>
+              <form class="custom-form" method="POST" action="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE">
+                <input type="hidden" name="redirect" value="thankyou.html" />
+                <input type="hidden" name="source" value="PTBC Website" />
 
-    <a class="icon-btn fb" href="https://www.facebook.com/PageTurnerBookClub?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
-      </svg>
-    </a>
-  </div>
-</div>
+                <input name="first" type="text" placeholder="First Name" required />
+                <input name="last" type="text" placeholder="Last Name" required />
+                <input name="email" type="email" placeholder="Email Address" required />
 
+                <select name="country" required class="country-select">
+                  <option value="" selected hidden>Select Country</option>
 
-<!-- Bottom-right form -->
-<div class="form-wrap">
-  <aside class="card" aria-label="Join the mailing list form">
-    <h2>Free Offers Every Month</h2>
+                  <option value="United States">United States</option>
+                  <option value="Canada">Canada</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Australia">Australia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="South Africa">South Africa</option>
 
-    <form class="custom-form" method="POST" action="PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE">
-      <!-- redirect after submit -->
-      <input type="hidden" name="redirect" value="thankyou.html" />
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Greece">Greece</option>
+                  <option value="India">India</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
 
-      <!-- tracking -->
-      <input type="hidden" name="source" value="PTBC Website" />
+                  <option value="Other">Other</option>
+                </select>
 
-      <input name="first" type="text" placeholder="First Name" required />
-      <input name="last" type="text" placeholder="Last Name" required />
-      <input name="email" type="email" placeholder="Email Address" required />
+                <button type="submit">Join the Club</button>
+              </form>
 
-   <select name="country" required class="country-select">
+              <p class="note">No spam. Leave anytime.</p>
+            </aside>
+          </div>
 
-      <option value="" disabled selected class="placeholder">Select Country</option>
+        </div>
+      </div>
 
+      <!-- Footer (back where it belongs) -->
+      <div class="bottom">
+        <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
+        <p class="social-line">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</p>
 
-        <option value="United States">United States</option>
-        <option value="Canada">Canada</option>
-        <option value="United Kingdom">United Kingdom</option>
-        <option value="Australia">Australia</option>
-        <option value="New Zealand">New Zealand</option>
-        <option value="Ireland">Ireland</option>
-        <option value="South Africa">South Africa</option>
-
-        <option value="Afghanistan">Afghanistan</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Austria">Austria</option>
-        <option value="Belgium">Belgium</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Chile">Chile</option>
-        <option value="China">China</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Denmark">Denmark</option>
-        <option value="Finland">Finland</option>
-        <option value="France">France</option>
-        <option value="Germany">Germany</option>
-        <option value="Greece">Greece</option>
-        <option value="India">India</option>
-        <option value="Israel">Israel</option>
-        <option value="Italy">Italy</option>
-        <option value="Japan">Japan</option>
-        <option value="Mexico">Mexico</option>
-        <option value="Netherlands">Netherlands</option>
-        <option value="Norway">Norway</option>
-        <option value="Philippines">Philippines</option>
-        <option value="Poland">Poland</option>
-        <option value="Portugal">Portugal</option>
-        <option value="Spain">Spain</option>
-        <option value="Sweden">Sweden</option>
-        <option value="Switzerland">Switzerland</option>
-        <option value="Turkey">Turkey</option>
-        <option value="United Arab Emirates">United Arab Emirates</option>
-
-        <option value="Other">Other</option>
-      </select>
-
-      <button type="submit">Join the Club</button>
-    </form>
-
-    <p class="note">No spam. Leave anytime.</p>
- 
-     
+        <div class="icons">
           <a class="icon-btn ig" href="https://www.instagram.com/pageturnerbc/?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
