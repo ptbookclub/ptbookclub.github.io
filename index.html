@@ -7,10 +7,11 @@
 
 <style>
 :root{
-  --paper:#efe6d8;
   --ink:#2b2620;
-  --red:#b3161b;
-  --red2:#7f0f13;
+  --paper:#e7e0d7;
+  --accent:#b3161b;
+  --shadow:0 25px 60px rgba(0,0,0,.45);
+  --radius:18px;
 }
 
 *{box-sizing:border-box}
@@ -19,227 +20,267 @@ body{
   margin:0;
   font-family: Georgia, "Times New Roman", serif;
   background:#0b0f14;
-}
-
-/* WRAPPER */
-.wrap{
-  max-width:1100px;
-  margin:40px auto;
-  background:var(--paper);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,.6);
-}
-
-/* HEADER */
-.top-inner{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-  position:relative;
-}
-
-.logo{
-  width:130px; /* 50% larger */
-  position:absolute;
-  left:20px;
-}
-
-.top-copy{
-  font-size:36px;
-  text-align:center;
-  color:var(--ink);
-  line-height:1.2;
-}
-
-/* HERO */
-.hero{
-  background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-    url("assets/banner.jpg") center/cover no-repeat;
-  padding:60px 40px 40px;
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 380px;
-  gap:40px;
-  min-height:520px;
-}
-
-.hero-left{
-  text-align:center;
   color:#fff;
 }
 
-.hero-h1{
-  font-size:64px;
+/* ===== TEXTURED PAPER HEADER ===== */
+
+.top-band{
+  background:
+    url("assets/paper-texture.jpg") center/cover no-repeat;
+  border-radius:18px 18px 0 0;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  position:relative;
+}
+
+.top-band::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("assets/paper-overlay.jpg") center/cover no-repeat;
+  opacity:.35;
+  pointer-events:none;
+}
+
+.top-inner{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:20px 30px;
+}
+
+.logo{
+  width:130px;
+}
+
+.top-copy{
+  flex:1;
+  text-align:center;
+  font-size:36px;
+  color:var(--ink);
+  font-weight:600;
+  line-height:1.2;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  position:relative;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.65)),
+    url("assets/banner.jpg") center/cover no-repeat;
+  min-height:650px;
+  padding:40px 40px 60px;
+}
+
+.hero-content{
+  text-align:center;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.hero h1{
+  font-size:70px;
   margin:0 0 10px;
+  letter-spacing:.5px;
 }
 
 .genres{
-  font-size:20px;
-  margin-bottom:25px;
+  font-size:22px;
+  letter-spacing:1px;
+  margin-bottom:30px;
 }
 
 .btn-primary{
   display:inline-block;
-  padding:18px 26px;
-  background:linear-gradient(var(--red),var(--red2));
-  color:#fff;
+  background:var(--accent);
+  padding:18px 28px;
+  border-radius:999px;
   font-weight:bold;
   text-decoration:none;
-  border-radius:50px;
-  letter-spacing:.5px;
+  color:#fff;
+  font-size:18px;
   box-shadow:0 15px 40px rgba(179,22,27,.4);
+  margin-bottom:15px;
 }
 
-.btn-primary:hover{filter:brightness(1.05)}
-
-.subline{
-  margin-top:20px;
-  font-size:20px;
-}
-
-.arrow{
+.arrow-down{
   font-size:28px;
+  display:block;
   margin-top:10px;
 }
 
-/* FORM CARD */
-.card{
-  align-self:end;
-  background:rgba(20,20,22,.75);
-  border-radius:18px;
-  padding:15px;
-  backdrop-filter:blur(8px);
-  box-shadow:0 20px 60px rgba(0,0,0,.7);
-}
+/* ===== FORM BOX ===== */
 
-.airtable-embed{
-  width:100%;
-  height:260px; /* fits First, Last, Email, Submit */
-  border:none;
-}
-
-/* FOOTER */
-.bottom{
-  text-align:center;
-  padding:30px;
-  background:var(--paper);
+.form-box{
+  position:absolute;
+  right:40px;
+  bottom:40px;
+  width:380px;
+  background:
+    url("assets/paper-texture.jpg") center/cover no-repeat;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:25px;
   color:var(--ink);
 }
 
+.form-box::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("assets/paper-overlay.jpg") center/cover no-repeat;
+  opacity:.25;
+  border-radius:var(--radius);
+  pointer-events:none;
+}
+
+.form-box h2{
+  margin-top:0;
+  text-align:center;
+}
+
+form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+input{
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+
+button{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ===== FOOTER ===== */
+
+.footer{
+  background:
+    url("assets/paper-texture.jpg") center/cover no-repeat;
+  padding:30px;
+  text-align:center;
+  color:var(--ink);
+  position:relative;
+}
+
+.footer::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("assets/paper-overlay.jpg") center/cover no-repeat;
+  opacity:.35;
+  pointer-events:none;
+}
+
+.footer-content{
+  position:relative;
+  z-index:2;
+}
+
 .quote{
-  font-size:22px;
   font-style:italic;
-  margin-bottom:15px;
+  font-size:22px;
+  margin-bottom:20px;
 }
 
 .icons{
   display:flex;
   justify-content:center;
-  gap:18px;
+  gap:20px;
 }
 
-.icon-btn{
-  width:50px;
-  height:50px;
-  border-radius:12px;
-  display:grid;
-  place-items:center;
+.icons a{
+  font-size:28px;
   text-decoration:none;
 }
 
-.instagram{
-  background:#e1306c;
-}
+.instagram{ color:#E1306C; }
+.facebook{ color:#1877F2; }
 
-.facebook{
-  background:#1877f2;
-}
+/* ===== MOBILE ===== */
 
-.icon{
-  width:24px;
-  height:24px;
-  fill:#fff;
-}
-
-/* MOBILE */
 @media(max-width:900px){
-  .hero-grid{
-    grid-template-columns:1fr;
-  }
 
-  .card{
-    margin-top:30px;
-  }
+.hero{
+  padding:40px 20px 120px;
+}
 
-  .hero-h1{
-    font-size:46px;
-  }
+.form-box{
+  position:relative;
+  width:100%;
+  right:auto;
+  bottom:auto;
+  margin-top:40px;
+}
+
+.hero h1{
+  font-size:44px;
+}
+
+.top-copy{
+  font-size:26px;
+}
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
-
-<header class="top-inner">
-  <img src="assets/logo.png" class="logo" alt="PTBC logo">
-  <div class="top-copy">
-    Free books. Support authors.<br>
-    Fuel your next binge.
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-grid">
-
-    <div class="hero-left">
-      <h1 class="hero-h1">Get Free Books</h1>
-      <div class="genres">Mystery ★ Thriller ★ Paranormal</div>
-
-      <a class="btn-primary" href="#">TAKE ME TO THIS MONTH'S FREEBIES →</a>
-
-      <div class="subline">Join the club for other free offers</div>
-      <div class="arrow">↓</div>
+<section class="top-band">
+  <div class="top-inner">
+    <img class="logo" src="assets/logo.png" />
+    <div class="top-copy">
+      Free books. Support authors.<br>
+      Fuel your next binge.
     </div>
-
-    <div class="card">
-      <iframe 
-        class="airtable-embed" 
-        src="https://airtable.com/embed/apprQvd2jQf2hjdeK/shrbjWRI6bzsTaFVz"
-        frameborder="0">
-      </iframe>
-    </div>
-
   </div>
 </section>
 
-<footer class="bottom">
-  <div class="quote">
-    “Remember, your reviews are the only applause writers ever get.”
+<section class="hero">
+
+  <div class="hero-content">
+    <h1>Get Free Books</h1>
+    <div class="genres">Mystery ★ Thriller ★ Paranormal</div>
+    <a class="btn-primary" href="#">TAKE ME TO THIS MONTH'S FREEBIES →</a>
+    <div class="arrow-down">↓</div>
   </div>
 
-  <div class="icons">
-    <a href="#" class="icon-btn instagram">
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5z"/>
-      </svg>
-    </a>
-
-    <a href="#" class="icon-btn facebook">
-      <svg class="icon" viewBox="0 0 24 24">
-        <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
-      </svg>
-    </a>
+  <div class="form-box">
+    <h2>Join the mailing list</h2>
+    <form>
+      <input placeholder="First Name" required>
+      <input placeholder="Last Name" required>
+      <input placeholder="Email" type="email" required>
+      <button type="submit">Subscribe</button>
+    </form>
   </div>
-</footer>
 
-</div>
+</section>
+
+<section class="footer">
+  <div class="footer-content">
+    <div class="quote">“Remember, your reviews are the only applause writers ever get.”</div>
+    <div class="icons">
+      <a href="#" class="instagram">Instagram</a>
+      <a href="#" class="facebook">Facebook</a>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
