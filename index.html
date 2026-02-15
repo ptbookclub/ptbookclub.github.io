@@ -233,9 +233,13 @@
     }
 
     /* ✅ Reliable placeholder color for the select */
-    .custom-form select.country-select:invalid{
-      color: rgba(43,38,32,.65);
-    }
+ .custom-form select.country-select{
+  color:#2b2620;
+}
+.custom-form select.country-select:invalid{
+  color: rgba(43,38,32,.65);
+}
+
 
     /* button */
     .custom-form button{
@@ -383,8 +387,11 @@
                 <input name="last" type="text" placeholder="Last Name" required />
                 <input name="email" type="email" placeholder="Email Address" required />
 
-                <select name="country" required class="country-select">
-                  <option value="" selected hidden>Select Country</option>
+              <select name="country" required class="country-select">
+  <option value="" disabled selected>Select Country</option>
+  ...
+</select>
+
 
                   <option value="United States">United States</option>
                   <option value="Canada">Canada</option>
