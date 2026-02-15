@@ -1,438 +1,275 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Turner Book Club — Free Books</title>
-  <meta name="description" content="Free books. Support authors. Fuel your next binge." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page Turner Book Club — Free Books</title>
 
-  <!-- Classic serif closer to mockup -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#e8e1d8;
+  --ink:#2a241e;
+  --hero-dark: rgba(0,0,0,.55);
+  --red:#b21f23;
+  --red-dark:#7f1417;
+  --radius:20px;
+}
 
-  <style>
-    :root{
-      --bg:#070a0f;
-      --ink:#2b2620;
+*{box-sizing:border-box;margin:0;padding:0}
 
-      --paperImg: url("assets/paper-tile.jpg");
+body{
+  font-family: Georgia, serif;
+  background:#0d1116;
+  display:flex;
+  justify-content:center;
+  padding:40px 16px;
+}
 
-      /* Warmer paper like the mockup */
-      --paperBase: rgba(245,238,228,.95);
-      --paperShade: rgba(235,226,214,.92);
+.container{
+  width:100%;
+  max-width:1080px;
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--paper);
+  box-shadow:0 40px 80px rgba(0,0,0,.6);
+}
 
-      --cream:#f6ead2;
-      --cream2: rgba(246,234,210,.92);
+/* HEADER */
 
-      --red:#b3161b;
-      --red2:#7f0f13;
+.header{
+  background:var(--paper);
+  padding:28px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
 
-      --radius:18px;
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --shadowSoft: 0 10px 40px rgba(0,0,0,.25);
+.logo{
+  position:absolute;
+  left:40px;
+  width:135px; /* 50% larger */
+}
 
-      --max: 900px; /* keeps it closer to your mockup proportions */
-    }
+.header h1{
+  text-align:center;
+  font-size:34px;
+  color:#3b342c;
+  line-height:1.2;
+}
 
-    *{box-sizing:border-box}
+/* HERO */
 
-    body{
-      margin:0;
-      min-height:100vh;
-      background:
-        radial-gradient(1100px 700px at 18% 0%, rgba(217,178,95,.18), transparent 62%),
-        radial-gradient(900px 700px at 82% 30%, rgba(90,120,150,.12), transparent 62%),
-        var(--bg);
-      display:flex;
-      justify-content:center;
-      font-family: "Libre Baskerville", Georgia, serif;
-    }
+.hero{
+  position:relative;
+  background:
+    linear-gradient(var(--hero-dark),var(--hero-dark)),
+    url("assets/banner.jpg") center/cover no-repeat;
+  min-height:600px;
+  padding:60px 60px 40px 60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  align-items:center;
+}
 
-    .wrap{
-      width:100%;
-      max-width: var(--max);
-      padding: 26px 18px 64px;
-    }
+.hero-text{
+  text-align:center;
+  margin-top:10px;
+}
 
-    .shell{
-      border-radius: var(--radius);
-      overflow:hidden;
-      box-shadow: var(--shadowSoft);
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.02);
-    }
+.hero-text h2{
+  font-size:62px;
+  color:#f5e6c8;
+  text-shadow:0 6px 18px rgba(0,0,0,.7);
+}
 
-    /* Paper header (mockup look) */
-    .top-band{
-      background:
-        linear-gradient(180deg, var(--paperBase), var(--paperShade)),
-        var(--paperImg);
-      background-size: auto, 520px auto;
-      background-repeat: no-repeat, repeat;
-      color: var(--ink);
-      padding: 16px 18px 14px;
-      border-bottom: 1px solid rgba(0,0,0,.10);
-    }
+.hero-text p{
+  font-size:22px;
+  color:#f1e7d4;
+  margin-top:6px;
+  letter-spacing:1px;
+}
 
-    .top-inner{
-      display:grid;
-      grid-template-columns: 110px 1fr 110px;
-      align-items:center;
-      gap: 10px;
-    }
+.cta-btn{
+  margin-top:22px;
+  background:linear-gradient(var(--red),var(--red-dark));
+  padding:18px 36px;
+  border-radius:999px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  letter-spacing:1px;
+  box-shadow:0 20px 40px rgba(0,0,0,.5);
+  display:inline-block;
+}
 
-    .logo{
-      width: 90px; /* closer to mockup */
-      height:auto;
-      display:block;
-      justify-self:start;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,.18));
-    }
+.cta-sub{
+  margin-top:16px;
+  color:#f3e7d4;
+  font-size:18px;
+}
 
-    .top-copy{
-      margin:0;
-      text-align:center;
-      font-family: "Playfair Display", serif;
-      font-weight: 700;
-      font-size: 34px;
-      line-height: 1.12;
-      color: rgba(43,38,32,.92);
-      text-shadow: 0 1px 0 rgba(255,255,255,.45);
-    }
+.down-arrow{
+  font-size:28px;
+  margin-top:6px;
+  color:#f3e7d4;
+}
 
-    .spacer{width:110px}
+/* FORM */
 
-    /* HERO = your banner.jpg */
-    .hero{
-      position:relative;
-      background: url("assets/banner.jpg") center/cover no-repeat;
-      padding: 22px 22px 22px;
-    }
+.form-box{
+  position:absolute;
+  right:50px;
+  bottom:50px;
+  width:360px;
+  background:rgba(30,20,15,.75);
+  backdrop-filter:blur(6px);
+  border-radius:18px;
+  padding:20px;
+  color:#f1e6d5;
+  box-shadow:0 25px 60px rgba(0,0,0,.7);
+}
 
-    /* Subtle vignette so text reads like mockup (not heavy) */
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        radial-gradient(1200px 650px at 55% 40%, rgba(0,0,0,.18), rgba(0,0,0,.38));
-      pointer-events:none;
-    }
+.form-box h3{
+  font-size:28px;
+  margin-bottom:14px;
+}
 
-    .hero-inner{
-      position:relative;
-      min-height: 600px; /* gives the same “poster” height */
-    }
+.form-viewport{
+  height:270px;
+  overflow:hidden;
+  border-radius:12px;
+}
 
-    /* CENTERED hero stack (this is the big difference) */
-    .hero-center{
-      position:absolute;
-      left: 50%;
-      top: 52%;
-      transform: translate(-50%, -50%);
-      text-align:center;
-      width: min(720px, 92%);
-    }
+.airtable-embed{
+  width:100%;
+  height:420px;
+  border:0;
+  transform:scale(.83);
+  transform-origin:top left;
+  margin-top:-70px; /* hides PTBC header */
+}
 
-    .h1{
-      margin:0 0 10px;
-      font-family:"Playfair Display", serif;
-      font-weight: 800;
-      font-size: 64px;
-      line-height: 1.02;
-      color: var(--cream);
-      text-shadow: 0 12px 30px rgba(0,0,0,.65);
-    }
+.form-note{
+  margin-top:10px;
+  font-size:14px;
+  opacity:.85;
+}
 
-    .genres{
-      margin:0 0 16px;
-      font-size: 22px;
-      letter-spacing: .6px;
-      color: var(--cream2);
-      text-shadow: 0 10px 24px rgba(0,0,0,.55);
-    }
+/* FOOTER */
 
-    /* CTA: centered + pill + arrow like mockup */
-    .cta-row{
-      display:flex;
-      justify-content:center;
-      margin-bottom: 12px;
-    }
+.footer{
+  padding:30px;
+  text-align:center;
+  background:var(--paper);
+  color:#3b342c;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 16px 26px;
-      border-radius: 999px;
-      text-decoration:none;
-      color:#fff;
-      font-family:"Playfair Display", serif;
-      font-weight: 800;
-      letter-spacing: .8px;
-      text-transform: uppercase;
-      font-size: 18px;
+.footer p{
+  font-style:italic;
+  font-size:20px;
+}
 
-      background:
-        radial-gradient(120% 180% at 30% 10%, rgba(255,255,255,.26), transparent 55%),
-        linear-gradient(180deg, #c21b20, #7f0f13);
-      border: 1px solid rgba(255,255,255,.22);
-      box-shadow:
-        0 18px 46px rgba(179,22,27,.32),
-        inset 0 1px 0 rgba(255,255,255,.22),
-        inset 0 -10px 18px rgba(0,0,0,.22);
-      white-space: nowrap;
-    }
-    .btn:hover{filter: brightness(1.06)}
-    .btn:active{transform: translateY(1px)}
+.social{
+  margin-top:14px;
+  font-weight:bold;
+  letter-spacing:1px;
+}
 
-    .subline{
-      margin:0;
-      font-size: 20px;
-      color: var(--cream2);
-      text-shadow: 0 10px 22px rgba(0,0,0,.55);
-    }
+.icons{
+  margin-top:14px;
+  display:flex;
+  justify-content:center;
+  gap:16px;
+}
 
-    /* FORM CARD anchored bottom-right like mockup */
-    .form-card{
-      position:absolute;
-      right: 26px;
-      bottom: 22px;
-      width: 380px;
-      border-radius: 18px;
-      overflow:hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,.18);
-      background: rgba(18,18,20,.58);
-      backdrop-filter: blur(10px);
-    }
+.icons a{
+  width:44px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
+  font-weight:bold;
+  font-size:20px;
+}
 
-    .form-head{
-      padding: 14px 16px 10px;
-      font-family:"Playfair Display", serif;
-      font-size: 30px;
-      font-weight: 800;
-      color: var(--cream2);
-      text-shadow: 0 8px 18px rgba(0,0,0,.40);
-    }
+.instagram{ background:#E1306C; }
+.facebook{ background:#1877F2; }
 
-    /* Wrapper that forces no scroll by scaling the iframe */
-    .form-embed-wrap{
-      position:relative;
-      height: 420px;        /* the “box” height you see */
-      overflow:hidden;      /* absolutely prevents scrolling */
-      border-top: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.05);
-    }
+/* MOBILE */
 
-    /* SCALE the iframe to fit ALL fields with no internal scroll */
-    .airtable{
-      width: 100%;
-      height: 533px;        /* Airtable embed natural height */
-      border: 0;
-      display:block;
+@media(max-width:900px){
 
-      transform: scale(0.79);        /* 420 / 533 ≈ 0.79 */
-      transform-origin: top left;
-      width: calc(100% / 0.79);      /* keep full width after scaling */
-      height: calc(533px / 0.79);
-      filter: brightness(.95) contrast(1.02) saturate(.92);
-      background: transparent;
-    }
+  .form-box{
+    position:relative;
+    right:auto;
+    bottom:auto;
+    margin-top:40px;
+    width:100%;
+    max-width:420px;
+  }
 
-    /* “Tone” overlay so Airtable whites don’t clash */
-    .form-embed-wrap::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.06));
-      pointer-events:none;
-      opacity:.65;
-    }
+  .hero{
+    padding:40px 20px 60px 20px;
+  }
 
-    .form-foot{
-      padding: 10px 16px 12px;
-      font-size: 13px;
-      color: rgba(246,234,210,.75);
-    }
-
-    /* FOOTER paper like mockup */
-    .footer{
-      background:
-        linear-gradient(180deg, var(--paperBase), var(--paperShade)),
-        var(--paperImg);
-      background-size: auto, 520px auto;
-      background-repeat: no-repeat, repeat;
-      color: var(--ink);
-      text-align:center;
-      padding: 18px 18px 22px;
-      border-top: 1px solid rgba(0,0,0,.10);
-    }
-
-    .quote{
-      margin: 0 0 10px;
-      font-size: 20px;
-      font-style: italic;
-      color: rgba(43,38,32,.88);
-    }
-
-    .follow{
-      margin: 0 0 12px;
-      font-family:"Playfair Display", serif;
-      font-weight: 700;
-      font-size: 16px;
-      letter-spacing: .6px;
-      text-transform: uppercase;
-      color: rgba(43,38,32,.92);
-    }
-
-    .icons{
-      display:flex;
-      justify-content:center;
-      gap: 12px;
-    }
-
-    .icon-btn{
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      display:grid;
-      place-items:center;
-      background: rgba(0,0,0,.06);
-      border: 1px solid rgba(0,0,0,.10);
-      text-decoration:none;
-    }
-
-    .icon{
-      width: 20px;
-      height: 20px;
-      fill: rgba(43,38,32,.86);
-    }
-
-    /* RESPONSIVE: keep geometry and keep form readable */
-    @media (max-width: 980px){
-      .h1{font-size: 56px}
-      .hero-inner{min-height: 640px}
-
-      .form-card{
-        right: 18px;
-        bottom: 18px;
-        width: 360px;
-      }
-    }
-
-    @media (max-width: 760px){
-      .top-copy{font-size: 26px}
-      .hero-inner{min-height: 760px}
-
-      /* stack form below center content on small screens */
-      .form-card{
-        position:relative;
-        right:auto;
-        bottom:auto;
-        width: 100%;
-        max-width: 460px;
-        margin: 18px auto 0;
-      }
-
-      .hero-center{
-        position:relative;
-        left:auto; top:auto;
-        transform:none;
-        margin: 24px auto 0;
-      }
-    }
-
-    @media (max-width: 520px){
-      .h1{font-size: 44px}
-      .genres{font-size: 18px}
-      .btn{width:100%}
-      .top-copy{font-size: 22px}
-      .logo{width: 76px}
-      .form-head{font-size: 26px}
-      .form-embed-wrap{height: 450px}
-      .airtable{
-        transform: scale(0.85);
-        width: calc(100% / 0.85);
-        height: calc(533px / 0.85);
-      }
-    }
-  </style>
+  .hero-text h2{
+    font-size:46px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <div class="wrap">
-    <div class="shell">
 
-      <!-- HEADER -->
-      <header class="top-band">
-        <div class="top-inner">
-          <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
-          <p class="top-copy">Free books. Support authors.<br/>Fuel your next binge.</p>
-          <div class="spacer" aria-hidden="true"></div>
-        </div>
-      </header>
+<div class="container">
 
-      <!-- HERO -->
-      <section class="hero">
-        <div class="hero-inner">
+  <div class="header">
+    <img class="logo" src="assets/logo.png" alt="Logo">
+    <h1>Free books. Support authors.<br>Fuel your next binge.</h1>
+  </div>
 
-          <!-- centered hero copy (matches mockup) -->
-          <div class="hero-center">
-            <h1 class="h1">Get Free Books</h1>
-            <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
+  <div class="hero">
 
-            <div class="cta-row">
-              <a class="btn" href="PASTE_BOOKFUNNEL_URL_HERE" target="_blank" rel="noopener noreferrer">
-                TAKE ME TO THIS MONTH'S FREEBIES →
-              </a>
-            </div>
+    <div class="hero-text">
+      <h2>Get Free Books</h2>
+      <p>Mystery ★ Thriller ★ Paranormal</p>
 
-            <p class="subline">Join the club for other free offers.</p>
-          </div>
+      <a class="cta-btn" href="#">TAKE ME TO THIS MONTH'S FREEBIES →</a>
+      <div class="cta-sub">Join the club for other free offers.</div>
+      <div class="down-arrow">↓</div>
+    </div>
 
-          <!-- bottom-right form card (matches mockup position) -->
-          <aside class="form-card" aria-label="Join the mailing list form">
-            <div class="form-head">Join the mailing list</div>
+    <div class="form-box">
+      <h3>Join the mailing list</h3>
 
-            <div class="form-embed-wrap">
-              <iframe
-                class="airtable"
-                src="https://airtable.com/embed/apprQvd2jQf2hjdeK/shrbjWRI6bzsTaFVz"
-                title="Page Turner Book Club Mailing List"
-                loading="lazy"
-              ></iframe>
-            </div>
+      <div class="form-viewport">
+        <iframe class="airtable-embed"
+          src="https://airtable.com/embed/apprQvd2jQf2hjdeK/shrbjWRI6bzsTaFVz">
+        </iframe>
+      </div>
 
-            <div class="form-foot">No spam. Leave anytime.</div>
-          </aside>
+      <div class="form-note">No spam. Leave anytime.</div>
+    </div>
 
-        </div>
-      </section>
+  </div>
 
-      <!-- FOOTER -->
-      <footer class="footer">
-        <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
-        <p class="follow">CLICK ICON TO FOLLOW for weekly deals:</p>
+  <div class="footer">
+    <p>“Remember, your reviews are the only applause writers ever get.”</p>
 
-        <div class="icons">
-          <a class="icon-btn" href="PASTE_INSTAGRAM_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
-            </svg>
-          </a>
+    <div class="social">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</div>
 
-          <a class="icon-btn" href="PASTE_FACEBOOK_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
-            </svg>
-          </a>
-        </div>
-      </footer>
-
+    <div class="icons">
+      <a class="instagram" href="#">IG</a>
+      <a class="facebook" href="#">f</a>
     </div>
   </div>
+
+</div>
+
 </body>
 </html>
