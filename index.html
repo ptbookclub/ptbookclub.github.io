@@ -1,286 +1,405 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Page Turner Book Club — Free Books</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page Turner Book Club — Free Books</title>
+  <meta name="description" content="Free books. Support authors. Fuel your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
 
-<style>
-:root{
-  --ink:#2b2620;
-  --paper:#e7e0d7;
-  --accent:#b3161b;
-  --shadow:0 25px 60px rgba(0,0,0,.45);
-  --radius:18px;
-}
+  <!-- OPTIONAL: Meta Pixel (paste your real snippet here) -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"
+  /></noscript>
+  -->
 
-*{box-sizing:border-box}
+  <style>
+    :root{
+      --bg:#0b0f14;
+      --text:#f3f0ea;
+      --muted:#cfc6b8;
+      --paper:#e7e0d7;
+      --ink:#2b2620;
+      --gold:#d9b25f;
+      --gold2:#f0d28a;
+      --red:#b3161b;
+      --red2:#7f0f13;
+      --border:rgba(255,255,255,.14);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:18px;
+      --max: 1080px;
+    }
 
-body{
-  margin:0;
-  font-family: Georgia, "Times New Roman", serif;
-  background:#0b0f14;
-  color:#fff;
-}
+    *{box-sizing:border-box}
 
-/* ===== TEXTURED PAPER HEADER ===== */
+    body{
+      margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      background: radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
+                  radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+    }
 
-.top-band{
-  background:
-    url("assets/paper-texture.jpg") center/cover no-repeat;
-  border-radius:18px 18px 0 0;
-  box-shadow:var(--shadow);
-  overflow:hidden;
-  position:relative;
-}
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
 
-.top-band::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("assets/paper-overlay.jpg") center/cover no-repeat;
-  opacity:.35;
-  pointer-events:none;
-}
+    /* Top band */
+    .top-band{
+      background: rgba(232,224,214,.92);
+      color: var(--ink);
+      border-radius: 18px;
+      border: 1px solid rgba(0,0,0,.08);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      overflow: hidden;
+    }
 
-.top-inner{
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:20px 30px;
-}
+    .top-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 16px 18px;
+      gap: 16px;
+    }
 
-.logo{
-  width:130px;
-}
+    .logo{
+      width: 88px;
+      height: auto;
+      flex: 0 0 auto;
+      display:block;
+    }
 
-.top-copy{
-  flex:1;
-  text-align:center;
-  font-size:36px;
-  color:var(--ink);
-  font-weight:600;
-  line-height:1.2;
-}
+    .top-copy{
+      flex: 1 1 auto;
+      text-align:center;
+      font-size: 34px;
+      line-height: 1.15;
+      letter-spacing: .2px;
+      font-weight: 600;
+      margin: 0;
+    }
 
-/* ===== HERO ===== */
+    .top-spacer{
+      width: 88px;
+      flex: 0 0 auto;
+    }
 
-.hero{
-  position:relative;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,.65), rgba(0,0,0,.65)),
-    url("assets/banner.jpg") center/cover no-repeat;
-  min-height:650px;
-  padding:40px 40px 60px;
-}
+    /* Hero section (image background) */
+    .hero{
+      position:relative;
+      border-top: 1px solid rgba(0,0,0,.08);
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.62), rgba(0,0,0,.25) 55%, rgba(0,0,0,.55)),
+        url("assets/banner.jpg") center/cover no-repeat;
+      padding: 26px 20px 22px;
+    }
 
-.hero-content{
-  text-align:center;
-  max-width:900px;
-  margin:0 auto;
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: end;
+      min-height: 560px;
+    }
 
-.hero h1{
-  font-size:70px;
-  margin:0 0 10px;
-  letter-spacing:.5px;
-}
+    .hero-left{
+      padding: 6px 4px 0;
+    }
 
-.genres{
-  font-size:22px;
-  letter-spacing:1px;
-  margin-bottom:30px;
-}
+    .hero-h1{
+      margin: 0 0 6px;
+      font-size: 62px;
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: .3px;
+      text-shadow: 0 8px 24px rgba(0,0,0,.55);
+    }
 
-.btn-primary{
-  display:inline-block;
-  background:var(--accent);
-  padding:18px 28px;
-  border-radius:999px;
-  font-weight:bold;
-  text-decoration:none;
-  color:#fff;
-  font-size:18px;
-  box-shadow:0 15px 40px rgba(179,22,27,.4);
-  margin-bottom:15px;
-}
+    .hero-h1 span{display:inline-block}
 
-.arrow-down{
-  font-size:28px;
-  display:block;
-  margin-top:10px;
-}
+    .genres{
+      margin: 0 0 18px;
+      font-size: 20px;
+      color: rgba(243,240,234,.9);
+      letter-spacing: .6px;
+      text-shadow: 0 6px 20px rgba(0,0,0,.45);
+    }
 
-/* ===== FORM BOX ===== */
+    .cta{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      align-items:flex-start;
+    }
 
-.form-box{
-  position:absolute;
-  right:40px;
-  bottom:40px;
-  width:380px;
-  background:
-    url("assets/paper-texture.jpg") center/cover no-repeat;
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:25px;
-  color:var(--ink);
-}
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 16px 18px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 16px 40px rgba(179,22,27,.30);
+      max-width: 620px;
+      width: fit-content;
+    }
 
-.form-box::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("assets/paper-overlay.jpg") center/cover no-repeat;
-  opacity:.25;
-  border-radius:var(--radius);
-  pointer-events:none;
-}
+    .btn-primary:hover{filter: brightness(1.06)}
+    .btn-primary:active{transform: translateY(1px)}
 
-.form-box h2{
-  margin-top:0;
-  text-align:center;
-}
+    .subline{
+      margin: 10px 0 0;
+      font-size: 20px;
+      color: rgba(243,240,234,.92);
+      text-shadow: 0 6px 18px rgba(0,0,0,.45);
+    }
 
-form{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
-}
+    /* ===== FORM CARD (UPDATED ONLY) ===== */
+    .card{
+      position: relative;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 16px 16px 12px;
 
-input{
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #ccc;
-  font-size:15px;
-}
+      /* paper color + subtle “texture” overlay (no image needed) */
+      background:
+        radial-gradient(120% 90% at 10% 0%, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(120% 90% at 90% 20%, rgba(0,0,0,.10), transparent 60%),
+        linear-gradient(0deg, rgba(255,255,255,.06), rgba(255,255,255,.06)),
+        rgba(232,224,214,.92);
 
-button{
-  background:var(--accent);
-  color:#fff;
-  border:none;
-  padding:12px;
-  border-radius:8px;
-  font-weight:bold;
-  cursor:pointer;
-}
+      border: 1px solid rgba(0,0,0,.12);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+    }
 
-/* ===== FOOTER ===== */
+    /* faint grain */
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:.18;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(0,0,0,.04), rgba(0,0,0,.04) 1px, transparent 1px, transparent 3px),
+        repeating-linear-gradient(90deg, rgba(0,0,0,.03), rgba(0,0,0,.03) 1px, transparent 1px, transparent 4px);
+      mix-blend-mode:multiply;
+    }
 
-.footer{
-  background:
-    url("assets/paper-texture.jpg") center/cover no-repeat;
-  padding:30px;
-  text-align:center;
-  color:var(--ink);
-  position:relative;
-}
+    .card > *{ position: relative; z-index: 1; }
 
-.footer::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:url("assets/paper-overlay.jpg") center/cover no-repeat;
-  opacity:.35;
-  pointer-events:none;
-}
+    .card h2{
+      margin: 6px 0 10px;
+      font-size: 30px;
+      font-weight: 700;
+      color: rgba(43,38,32,.95);
+      text-shadow: 0 6px 18px rgba(0,0,0,.08);
+    }
 
-.footer-content{
-  position:relative;
-  z-index:2;
-}
+    /* Airtable embed wrapper so it feels like it belongs */
+    .form-frame{
+      border-radius: 14px;
+      overflow: hidden;               /* prevents inner scrollbars from showing edges */
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(0,0,0,.14);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.35);
+    }
 
-.quote{
-  font-style:italic;
-  font-size:22px;
-  margin-bottom:20px;
-}
+    /* IMPORTANT: remove Airtable’s default border */
+    .airtable-embed{
+      width: 100%;
+      border: none !important;
+      display: block;
+      background: transparent;
+    }
 
-.icons{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
+    /* height tuned so fields + submit are visible without scrolling */
+    .airtable-embed{
+      height: 540px;
+    }
 
-.icons a{
-  font-size:28px;
-  text-decoration:none;
-}
+    .note{
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: rgba(43,38,32,.75);
+    }
 
-.instagram{ color:#E1306C; }
-.facebook{ color:#1877F2; }
+    /* Bottom quote + social */
+    .bottom{
+      padding: 18px 18px 20px;
+      text-align:center;
+      background: rgba(232,224,214,.92);
+      color: var(--ink);
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
 
-/* ===== MOBILE ===== */
+    .quote{
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-style: italic;
+    }
 
-@media(max-width:900px){
+    .social-line{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
 
-.hero{
-  padding:40px 20px 120px;
-}
+    .icons{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+    }
 
-.form-box{
-  position:relative;
-  width:100%;
-  right:auto;
-  bottom:auto;
-  margin-top:40px;
-}
+    .icon-btn{
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      background: rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+    }
 
-.hero h1{
-  font-size:44px;
-}
+    .icon-btn:hover{background: rgba(0,0,0,.12)}
 
-.top-copy{
-  font-size:26px;
-}
+    .icon{
+      width: 22px;
+      height: 22px;
+      fill: rgba(0,0,0,.75);
+    }
 
-}
-</style>
+    /* Mobile */
+    @media (max-width: 920px){
+      .top-copy{font-size: 28px}
+      .hero-grid{grid-template-columns: 1fr; min-height: unset}
+      .hero-h1{font-size: 54px}
+      .card{margin-top: 8px}
+      .airtable-embed{height: 560px;}
+    }
+
+    @media (max-width: 520px){
+      .logo{width: 76px}
+      .top-spacer{width: 76px}
+      .top-copy{font-size: 24px}
+      .hero-h1{font-size: 44px}
+      .genres{font-size: 18px}
+      .btn-primary{width: 100%}
+      .airtable-embed{height: 600px;}
+    }
+  </style>
 </head>
 
 <body>
+  <div class="wrap">
 
-<section class="top-band">
-  <div class="top-inner">
-    <img class="logo" src="assets/logo.png" />
-    <div class="top-copy">
-      Free books. Support authors.<br>
-      Fuel your next binge.
-    </div>
+    <section class="top-band">
+      <div class="top-inner">
+        <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
+        <p class="top-copy">Free books. Support authors.<br/>Fuel your next binge.</p>
+        <div class="top-spacer"></div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-grid">
+
+          <div class="hero-left">
+            <h1 class="hero-h1"><span>Get Free Books</span></h1>
+            <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
+
+            <div class="cta">
+              <a
+                class="btn-primary"
+                href="PASTE_BOOKFUNNEL_URL_HERE"
+                target="_blank"
+                rel="noopener noreferrer"
+                id="freebiesBtn"
+              >
+                TAKE ME TO THIS MONTH'S FREEBIES →
+              </a>
+
+              <p class="subline">Join the club for other free offers.</p>
+            </div>
+          </div>
+
+          <!-- FORM: only this section changed -->
+          <aside class="card" aria-label="Join the mailing list form">
+            <h2>Join the mailing list</h2>
+
+            <div class="form-frame">
+              <script src="https://static.airtable.com/js/embed/embed_snippet_v1.js"></script>
+              <iframe
+                class="airtable-embed airtable-dynamic-height"
+                src="https://airtable.com/embed/apprQvd2jQf2hjdeK/shrbjWRI6bzsTaFVz"
+                frameborder="0"
+                onmousewheel=""
+                width="100%"
+                height="540"
+                style="background: transparent;"
+                title="Page Turner Book Club Mailing List"
+              ></iframe>
+            </div>
+
+            <p class="note">No spam. Leave anytime.</p>
+          </aside>
+
+        </div>
+      </div>
+
+      <div class="bottom">
+        <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
+        <p class="social-line">CLICK ICON TO FOLLOW for weekly deals:</p>
+
+        <div class="icons">
+          <a class="icon-btn" href="PASTE_INSTAGRAM_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
+            </svg>
+          </a>
+
+          <a class="icon-btn" href="PASTE_FACEBOOK_URL_HERE" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </section>
   </div>
-</section>
 
-<section class="hero">
-
-  <div class="hero-content">
-    <h1>Get Free Books</h1>
-    <div class="genres">Mystery ★ Thriller ★ Paranormal</div>
-    <a class="btn-primary" href="#">TAKE ME TO THIS MONTH'S FREEBIES →</a>
-    <div class="arrow-down">↓</div>
-  </div>
-
-  <div class="form-box">
-    <h2>Join the mailing list</h2>
-    <form>
-      <input placeholder="First Name" required>
-      <input placeholder="Last Name" required>
-      <input placeholder="Email" type="email" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-
-</section>
-
-<section class="footer">
-  <div class="footer-content">
-    <div class="quote">“Remember, your reviews are the only applause writers ever get.”</div>
-    <div class="icons">
-      <a href="#" class="instagram">Instagram</a>
-      <a href="#" class="facebook">Facebook</a>
-    </div>
-  </div>
-</section>
-
+  <script>
+    const freebiesBtn = document.getElementById("freebiesBtn");
+    if (freebiesBtn) {
+      freebiesBtn.addEventListener("click", () => {
+        // fbq('trackCustom', 'MonthlyFreebiesClick');
+      });
+    }
+  </script>
 </body>
 </html>
