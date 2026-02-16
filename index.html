@@ -361,6 +361,20 @@
 
     /* Mobile */
     @media (max-width: 600px){
+      /* ✅ FIX: stop the top tagline from breaking into single-word lines */
+      .top-copy{
+        font-size: 22px;
+        line-height: 1.25;
+        padding: 0 10px;
+        max-width: 320px;
+        margin: 0 auto;
+        word-break: normal;
+        overflow-wrap: normal;
+        white-space: normal;
+      }
+
+      .top-copy br{ display:none; } /* keep it as a clean two-ish line wrap instead of forced breaks */
+
       .hero h1,
       .headline,
       .top-headline {
@@ -379,7 +393,7 @@
     @media (max-width: 520px){
       .logo{width: 118px}
       .top-spacer{width: 118px}
-      .top-copy{font-size: 24px}
+      .top-copy{font-size: 22px}
       .hero-h1{font-size: 44px}
       .genres{font-size: 18px}
       .hero{padding: 14px 14px 14px}
