@@ -8,72 +8,223 @@
   <style>
     :root{
       --bg:#0b0f14;
-      --text:#f3f0ea;
-      --muted: rgba(243,240,234,.84);
+
+      --paper:#efe6d8;
+      --paper2:#e6dccd;
+      --ink:#2b2620;
+
+      --border: rgba(0,0,0,.14);
+      --shadow: 0 22px 70px rgba(0,0,0,.55);
+      --radius: 18px;
+
       --gold: rgba(240,210,138,.95);
-      --border:rgba(255,255,255,.14);
-      --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:18px;
+      --muted: rgba(43,38,32,.72);
     }
+
+    *{ box-sizing:border-box; }
+
     body{
       margin:0;
       min-height:100vh;
       display:grid;
       place-items:center;
-      padding:22px;
-      background:
-        radial-gradient(900px 600px at 30% 10%, rgba(240,210,138,.12), transparent 60%),
-        radial-gradient(900px 600px at 80% 40%, rgba(90,120,150,.10), transparent 60%),
-        var(--bg);
-      color: var(--text);
+      padding: 22px 14px;
       font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      background:
+        radial-gradient(1100px 700px at 15% 0%, rgba(217,178,95,.14), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
+        var(--bg);
+      color:#fff;
     }
-    .card{
-      width:min(820px, 100%);
-      border:1px solid var(--border);
-      background: rgba(15,16,18,.62);
-      border-radius: var(--radius);
+
+    /* Background image layer like your main page */
+    .stage{
+      width: min(1080px, 100%);
+      border-radius: 22px;
+      overflow:hidden;
       box-shadow: var(--shadow);
-      padding: 26px 22px 20px;
-      backdrop-filter: blur(10px);
+      position:relative;
+      border: 1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,.35) 40%, rgba(0,0,0,.70)),
+        url("assets/banner.jpg") center/cover no-repeat;
+      padding: 34px 18px;
+    }
+
+    .paper{
+      width: min(860px, 100%);
+      margin: 0 auto;
+      background: linear-gradient(0deg, rgba(239,230,216,.95), rgba(239,230,216,.95));
+      color: var(--ink);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: 0 18px 55px rgba(0,0,0,.40);
+      position:relative;
+      padding: 22px 18px 18px;
       text-align:center;
     }
+
+    /* subtle paper grain */
+    .paper:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
+      background-size: 6px 6px;
+      opacity:.20;
+      pointer-events:none;
+      mix-blend-mode:multiply;
+      border-radius: var(--radius);
+    }
+
+    .paper > *{ position:relative; }
+
+    .logo{
+      width: 200px;
+      max-width: 56vw;
+      height:auto;
+      display:block;
+      margin: 0 auto 14px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.25));
+    }
+
     h1{
-      margin: 0 0 10px;
-      font-size: 44px;
-      line-height:1.05;
-      letter-spacing:.2px;
-    }
-    p{
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 18px;
-    }
-    .gold{
-      color: var(--gold);
+      margin: 0 0 8px;
+      font-size: 52px;
+      line-height: 1.05;
+      letter-spacing: .2px;
       font-weight: 700;
     }
-    .quote{
-      margin-top: 14px;
-      font-style: italic;
+
+    p{
+      margin: 0 0 10px;
       font-size: 20px;
-      color: var(--gold);
+      color: rgba(43,38,32,.80);
     }
+
+    .gold{
+      color: rgba(127,15,19,.95);
+      font-weight: 800;
+      letter-spacing: .2px;
+    }
+
     .small{
-      font-size: 15px;
-      opacity: .9;
-      margin-top: 8px;
+      font-size: 16px;
+      color: rgba(43,38,32,.70);
+      margin-top: 6px;
+    }
+
+    .divider{
+      margin: 16px auto 14px;
+      width: min(520px, 90%);
+      height: 1px;
+      background: rgba(43,38,32,.25);
+      position:relative;
+    }
+
+    .divider:after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:-2px;
+      transform: translateX(-50%);
+      width: 34px;
+      height: 5px;
+      background: rgba(43,38,32,.25);
+      border-radius: 99px;
+    }
+
+    .quote{
+      margin: 12px 0 14px;
+      font-style: italic;
+      font-size: 22px;
+      color: rgba(43,38,32,.78);
+    }
+
+    .follow{
+      margin: 0 0 12px;
+      font-size: 16px;
+      letter-spacing: .9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: rgba(43,38,32,.70);
+    }
+
+    .icons{
+      display:flex;
+      justify-content:center;
+      gap: 16px;
+      padding-bottom: 2px;
+    }
+
+    .icon-btn{
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      display:grid;
+      place-items:center;
+      text-decoration:none;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 12px 22px rgba(0,0,0,.18);
+      transform: translateY(0);
+      transition: transform .12s ease, filter .12s ease;
+    }
+
+    .icon-btn:hover{ filter: brightness(1.03); transform: translateY(-1px); }
+    .icon-btn:active{ transform: translateY(1px); }
+
+    .ig{ background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+    .fb{ background: #1877f2; }
+
+    .icon{
+      width: 34px;
+      height: 34px;
+      fill: #fff;
+    }
+
+    /* Mobile */
+    @media (max-width: 560px){
+      .stage{ padding: 22px 12px; }
+      h1{ font-size: 40px; }
+      p{ font-size: 18px; }
+      .logo{ width: 170px; }
+      .icon-btn{ width: 64px; height: 64px; }
+      .icon{ width: 30px; height: 30px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="card">
-    <h1>Check your inbox to get your bonus freebie.</h1>
-    <p>You’re officially in the Page Turner Book Club.</p>
-    <p class="gold">Your download link is on its way.</p>
-    <p class="small">Allow up to 20 minutes for delivery, and check Promotions/Spam if needed.</p>
-    <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
-  </div>
+  <main class="stage" aria-label="Thank you page">
+    <section class="paper">
+
+      <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
+
+      <h1>Check your inbox to get your bonus freebie.</h1>
+      <p>You’re officially in the Page Turner Book Club.</p>
+      <p class="gold">Your download link is on its way.</p>
+      <p class="small">Allow up to 20 minutes for delivery, and check Promotions/Spam if needed.</p>
+
+      <div class="divider" aria-hidden="true"></div>
+
+      <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
+
+      <p class="follow">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</p>
+
+      <div class="icons">
+        <a class="icon-btn ig" href="https://www.instagram.com/pageturnerbc/?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
+          </svg>
+        </a>
+
+        <a class="icon-btn fb" href="https://www.facebook.com/PageTurnerBookClub?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
+          </svg>
+        </a>
+      </div>
+
+    </section>
+  </main>
 </body>
 </html>
