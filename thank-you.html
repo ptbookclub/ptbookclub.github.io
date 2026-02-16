@@ -10,14 +10,12 @@
       --bg:#0b0f14;
 
       --paper:#efe6d8;
-      --paper2:#e6dccd;
       --ink:#2b2620;
 
       --border: rgba(0,0,0,.14);
       --shadow: 0 22px 70px rgba(0,0,0,.55);
       --radius: 18px;
 
-      --gold: rgba(240,210,138,.95);
       --muted: rgba(43,38,32,.72);
     }
 
@@ -28,7 +26,7 @@
       min-height:100vh;
       display:grid;
       place-items:center;
-      padding: 22px 14px;
+      padding: 16px; /* tighter outer framing so hero feels bigger */
       font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
       background:
         radial-gradient(1100px 700px at 15% 0%, rgba(217,178,95,.14), transparent 60%),
@@ -37,30 +35,32 @@
       color:#fff;
     }
 
-    /* Background image layer like your main page */
+    /* Background image layer */
     .stage{
-      width: min(1080px, 100%);
+      width: min(1100px, 100%);
+      min-height: 78vh;              /* gives the hero room to breathe */
+      display:grid;
+      place-items:center;
       border-radius: 22px;
       overflow:hidden;
       box-shadow: var(--shadow);
       position:relative;
       border: 1px solid rgba(255,255,255,.08);
       background:
-        linear-gradient(180deg, rgba(0,0,0,.62), rgba(0,0,0,.35) 40%, rgba(0,0,0,.70)),
+        linear-gradient(180deg, rgba(0,0,0,.58), rgba(0,0,0,.30) 40%, rgba(0,0,0,.66)),
         url("assets/banner.jpg") center/cover no-repeat;
-      padding: 34px 18px;
+      padding: 22px 16px;            /* less padding = bigger hero feel */
     }
 
     .paper{
-      width: min(860px, 100%);
-      margin: 0 auto;
-      background: linear-gradient(0deg, rgba(239,230,216,.95), rgba(239,230,216,.95));
+      width: min(760px, 92%);        /* closer to your reference proportions */
+      background: linear-gradient(0deg, rgba(239,230,216,.96), rgba(239,230,216,.96));
       color: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: 0 18px 55px rgba(0,0,0,.40);
       position:relative;
-      padding: 22px 18px 18px;
+      padding: 20px 22px 18px;
       text-align:center;
     }
 
@@ -70,7 +70,7 @@
       position:absolute; inset:0;
       background-image: radial-gradient(rgba(0,0,0,.05) 1px, transparent 1px);
       background-size: 6px 6px;
-      opacity:.20;
+      opacity:.18;
       pointer-events:none;
       mix-blend-mode:multiply;
       border-radius: var(--radius);
@@ -79,42 +79,45 @@
     .paper > *{ position:relative; }
 
     .logo{
-      width: 200px;
+      width: 185px;                  /* slightly smaller to match ref */
       max-width: 56vw;
       height:auto;
       display:block;
-      margin: 0 auto 14px;
-      filter: drop-shadow(0 10px 20px rgba(0,0,0,.25));
+      margin: 2px auto 14px;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.22));
     }
 
     h1{
-      margin: 0 0 8px;
-      font-size: 52px;
-      line-height: 1.05;
-      letter-spacing: .2px;
+      margin: 0 0 10px;
+      font-size: 44px;               /* reduced so it matches your image */
+      line-height: 1.06;
+      letter-spacing: .15px;
       font-weight: 700;
     }
 
     p{
-      margin: 0 0 10px;
-      font-size: 20px;
+      margin: 0 0 10px;              /* more breathing room */
+      font-size: 18px;
       color: rgba(43,38,32,.80);
+      line-height: 1.45;             /* fixes cramped feel */
     }
 
     .gold{
       color: rgba(127,15,19,.95);
       font-weight: 800;
       letter-spacing: .2px;
+      margin-bottom: 10px;
     }
 
     .small{
-      font-size: 16px;
+      font-size: 15px;
       color: rgba(43,38,32,.70);
       margin-top: 6px;
+      margin-bottom: 14px;
     }
 
     .divider{
-      margin: 16px auto 14px;
+      margin: 14px auto 14px;        /* equal spacing above/below */
       width: min(520px, 90%);
       height: 1px;
       background: rgba(43,38,32,.25);
@@ -134,15 +137,16 @@
     }
 
     .quote{
-      margin: 12px 0 14px;
+      margin: 10px 0 14px;
       font-style: italic;
-      font-size: 22px;
+      font-size: 20px;
       color: rgba(43,38,32,.78);
+      line-height: 1.35;
     }
 
     .follow{
       margin: 0 0 12px;
-      font-size: 16px;
+      font-size: 14px;
       letter-spacing: .9px;
       font-weight: 800;
       text-transform: uppercase;
@@ -157,14 +161,14 @@
     }
 
     .icon-btn{
-      width: 72px;
-      height: 72px;
+      width: 64px;                   /* slightly smaller like ref */
+      height: 64px;
       border-radius: 18px;
       display:grid;
       place-items:center;
       text-decoration:none;
       border: 1px solid rgba(0,0,0,.10);
-      box-shadow: 0 12px 22px rgba(0,0,0,.18);
+      box-shadow: 0 12px 22px rgba(0,0,0,.16);
       transform: translateY(0);
       transition: transform .12s ease, filter .12s ease;
     }
@@ -176,19 +180,21 @@
     .fb{ background: #1877f2; }
 
     .icon{
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       fill: #fff;
     }
 
     /* Mobile */
     @media (max-width: 560px){
-      .stage{ padding: 22px 12px; }
-      h1{ font-size: 40px; }
-      p{ font-size: 18px; }
-      .logo{ width: 170px; }
-      .icon-btn{ width: 64px; height: 64px; }
-      .icon{ width: 30px; height: 30px; }
+      body{ padding: 12px; }
+      .stage{ min-height: 84vh; padding: 16px 12px; }
+      .paper{ width: min(760px, 96%); padding: 18px 16px 16px; }
+      h1{ font-size: 36px; }
+      p{ font-size: 17px; }
+      .logo{ width: 165px; }
+      .icon-btn{ width: 60px; height: 60px; }
+      .icon{ width: 28px; height: 28px; }
     }
   </style>
 </head>
