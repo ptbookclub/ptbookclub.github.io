@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
+    <!-- Social Preview (Facebook / iMessage / etc.) -->
+  <meta property="og:title" content="Page Turner Book Club — Free Books" />
+  <meta property="og:description" content="Free books. Support authors. Fuel your next binge." />
+  <meta property="og:url" content="https://ptbookclub.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ptbookclub.github.io/assets/ptbc-share.jpg" />
+  <meta property="og:image:secure_url" content="https://ptbookclub.github.io/assets/ptbc-share.jpg" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="fb:app_id" content="933992829048362" />
+
+  <!-- Twitter preview (also helps sometimes) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page Turner Book Club — Free Books" />
+  <meta name="twitter:description" content="Free books. Support authors. Fuel your next binge." />
+  <meta name="twitter:image" content="https://ptbookclub.github.io/assets/ptbc-share.jpg" />
+
+  <title>Page Turner Book Club — Free Books</title>
+  <meta name="description" content="Free books. Support authors. Find your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
+
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1266134602043216');
+  fbq('track', 'PageView');
+  fbq('track', 'ViewContent');
+  </script>
+
+  <noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
+
+  <style>
+    /* Honeypot: invisible to humans, bait for bots */
+    .hp-field{
+      position:absolute !important;
+      left:-9999px !important;
+      top:auto !important;
+      width:1px !important;
+      height:1px !important;
+      overflow:hidden !important;
+    }
+
+    :root{
+      --bg:#0b0f14;
+      --text:#f3f0ea;
+      --ink:#2b2620;
+      --paper:#efe6d8;
+      --paper2:#e6dccd;
+      --paperBorder: rgba(0,0,0,.10);
+      --red:#b3161b;
+      --red2:#7f0f13;
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:18px;
+      --max: 1080px;
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+      background:
+        radial-gradient(1000px 600px at 20% 0%, rgba(217,178,95,.14), transparent 60%),
+        radial-gradient(900px 700px at 90% 30%, rgba(90,120,150,.10), transparent 60%),
+        var(--bg);
+      color: var(--text);
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 18px 54px;
+    }
+
+    /* Paper container */
+    .top-band{
+      background: linear-gradient(0deg, rgba(239,230,216,.94), rgba(239,230,216,.94));
+      color: var(--ink);
+      border-radius: 18px;
+      border: 1px solid var(--paperBorder);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* subtle paper grain (no image needed) */
+    .top-band:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+      background-size: 6px 6px;
+      opacity:.25;
+      pointer-events:none;
+      mix-blend-mode:multiply;
+    }
+
+    .top-inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 16px 18px;
+      gap: 16px;
+    }
+
+    .logo{
+      width: 132px;
+      height: auto;
+      flex: 0 0 auto;
+      display:block;
+    }
+
+    .top-copy{
+      flex: 1 1 auto;
+      text-align:center;
+      font-size: 36px;
+      line-height: 1.12;
+      letter-spacing: .2px;
+      font-weight: 600;
+      margin: 0;
+      color: var(--ink);
+    }
+
+    /* Sentence splitting: desktop stays normal, mobile can force line breaks */
+    .top-copy .sentence{
+      display:inline;
+      white-space:nowrap;
+    }
+    .top-copy .sentence + .sentence:before{
+      content:" ";
+    }
+
+    .top-spacer{ width: 132px; flex: 0 0 auto; }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      border-top: 1px solid rgba(0,0,0,.08);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.22) 40%, rgba(0,0,0,.55)),
+        url("assets/banner.jpg") center/cover no-repeat;
+      padding: 18px 20px 18px;
+    }
+
+    .hero-inner{
+      position:relative;
+      min-height: 560px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .hero-text{
+      text-align:center;
+      padding-top: 34px;
+    }
+
+    .hero-h1{
+      margin: 0 0 10px;
+      font-size: 66px;
+      line-height: 1.02;
+      font-weight: 700;
+      letter-spacing: .3px;
+      color: rgba(245,232,210,.98);
+      text-shadow: 0 10px 30px rgba(0,0,0,.55);
+    }
+
+    .genres{
+      margin: 0 0 18px;
+      font-size: 20px;
+      color: rgba(243,240,234,.92);
+      letter-spacing: .6px;
+      text-shadow: 0 8px 22px rgba(0,0,0,.45);
+    }
+
+    .btn-primary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 16px 18px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration:none;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 16px 40px rgba(179,22,27,.30);
+      max-width: 620px;
+      width: min(620px, 100%);
+    }
+
+    .btn-primary:hover{filter: brightness(1.06)}
+    .btn-primary:active{transform: translateY(1px)}
+
+    .subline{
+      margin: 14px 0 0;
+      font-size: 20px;
+      color: rgba(243,240,234,.92);
+      text-shadow: 0 6px 18px rgba(0,0,0,.45);
+    }
+
+    .arrow-down{
+      display:inline-block;
+      margin-left: 8px;
+      font-size: 34px;
+      color: rgba(243,240,234,.92);
+      text-shadow: 0 6px 18px rgba(0,0,0,.45);
+      user-select:none;
+      transform: translateY(2px);
+    }
+
+    /* Form card bottom-right */
+    .form-wrap{
+      margin-top:auto;
+      display:flex;
+      justify-content:flex-end;
+      padding: 12px 0 6px;
+    }
+
+    .card{
+      width: min(380px, 100%);
+      background: linear-gradient(0deg, rgba(239,230,216,.92), rgba(239,230,216,.92));
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      padding: 16px 16px 12px;
+    }
+
+    .card h2{
+      margin: 4px 0 12px;
+      font-size: 28px;
+      font-weight: 700;
+      color: #2b2620;
+    }
+
+    .custom-form{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .custom-form input,
+    .custom-form select{
+      padding:12px 14px;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.15);
+      background: rgba(255,255,255,.50);
+      color:#2b2620;
+      font-size:16px;
+      font-family: Georgia, "Times New Roman", Times, serif;
+      outline:none;
+      height: 44px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    .custom-form input::placeholder{
+      color: rgba(43,38,32,.65);
+    }
+
+    /* dropdown arrow */
+    .custom-form select{
+      background-image:
+        linear-gradient(45deg, transparent 50%, rgba(43,38,32,.75) 50%),
+        linear-gradient(135deg, rgba(43,38,32,.75) 50%, transparent 50%);
+      background-position:
+        calc(100% - 18px) 18px,
+        calc(100% - 12px) 18px;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      padding-right: 36px;
+    }
+
+    /* Base text color once a country is selected */
+    .custom-form select.country-select{
+      color:#2b2620;
+    }
+
+    /* Placeholder color when nothing is selected */
+    .custom-form select.country-select:invalid{
+      color: rgba(43,38,32,.65);
+    }
+
+    /* button */
+    .custom-form button{
+      padding:12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.20);
+      font-weight:800;
+      letter-spacing:.6px;
+      cursor:pointer;
+      background: linear-gradient(180deg, var(--red), var(--red2));
+      color:white;
+      text-transform:uppercase;
+      transition: transform .15s ease, filter .15s ease;
+    }
+
+    .custom-form button:hover{ filter: brightness(1.06); }
+    .custom-form button:active{ transform: translateY(1px); }
+
+    .note{
+      margin: 10px 0 0;
+      font-size: 14px;
+      color: rgba(43,38,32,.75);
+    }
+
+    /* Footer */
+    .bottom{
+      position:relative;
+      padding: 18px 18px 20px;
+      text-align:center;
+      background: rgba(239,230,216,.94);
+      color: var(--ink);
+      border-top: 1px solid rgba(0,0,0,.08);
+    }
+
+    .bottom:before{
+      content:"";
+      position:absolute; inset:0;
+      background-image: radial-gradient(rgba(0,0,0,.04) 1px, transparent 1px);
+      background-size: 6px 6px;
+      opacity:.25;
+      pointer-events:none;
+      mix-blend-mode:multiply;
+    }
+
+    .bottom > *{ position:relative; }
+
+    .quote{
+      margin: 0 0 14px;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    .social-line{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .icons{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+    }
+
+    .icon-btn{
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      text-decoration:none;
+      border: 1px solid rgba(0,0,0,.10);
+      box-shadow: 0 10px 18px rgba(0,0,0,.12);
+    }
+
+    .ig{ background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4); }
+    .fb{ background: #1877f2; }
+
+    .icon{
+      width: 24px;
+      height: 24px;
+      fill: #fff;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px){
+      .hero h1,
+      .headline,
+      .top-headline {
+        font-size: 34px !important;
+        line-height: 1.2 !important;
+        letter-spacing: 0.3px;
+        padding: 0 16px;
+      }
+
+      .hero {
+        padding-top: 40px;
+        padding-bottom: 30px;
+      }
+    }
+
+    @media (max-width: 520px){
+      .logo{width: 118px}
+      .top-spacer{ display:none; } /* key: stop squeezing the center text */
+      .top-inner{
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap: 10px;
+        padding: 14px 14px;
+      }
+      .top-copy{
+        font-size: 28px;
+        width: 100%;
+        max-width: 26ch;
+        line-height: 1.18;
+      }
+      .top-copy .sentence{
+        display:block;         /* only break after each period */
+        white-space:normal;
+      }
+      .top-copy .sentence + .sentence:before{
+        content:"";            /* remove the desktop spaces */
+      }
+
+      .hero-h1{font-size: 44px}
+      .genres{font-size: 18px}
+      .hero{padding: 14px 14px 14px}
+      .hero-inner{min-height: 620px}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <section class="top-band">
+
+      <div class="top-inner">
+        <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
+        <p class="top-copy">
+          <span class="sentence">Free books.</span><span class="sentence">Support authors.</span><span class="sentence">Fuel your next binge.</span>
+        </p>
+        <div class="top-spacer"></div>
+      </div>
+
+      <div class="hero">
+        <div class="hero-inner">
+
+          <div class="hero-text">
+            <h1 class="hero-h1">Get Free Books</h1>
+            <p class="genres">Mystery ★ Thriller ★ Paranormal</p>
+
+            <a class="btn-primary"
+               href="https://books.bookfunnel.com/valentinefreebies/imzitc01b6"
+               target="_blank"
+               rel="noopener noreferrer">
+              TAKE ME TO THIS MONTH'S FREEBIES →
+            </a>
+
+            <p class="subline">
+              Join the club and mailing list for other free offers.
+              <span class="arrow-down">↓</span>
+            </p>
+          </div>
+
+          <!-- Bottom-right form -->
+          <div class="form-wrap">
+            <aside class="card" aria-label="Join the mailing list form">
+              <h2>Free Offers Every Month</h2>
+
+              <form class="custom-form" method="POST" action="https://script.google.com/macros/s/AKfycbwhXmWZIAPHBGrJMphYxc57uOZZh5SGe91AN1If660JyTbTWHJCGm4BIxFwCqRUmPjVyQ/exec">
+                <input type="hidden" name="redirect" value="https://ptbookclub.github.io/thank-you.html" />
+                <input type="hidden" name="source" value="PTBC Website" />
+
+                <input name="first" type="text" placeholder="First Name" required />
+                <input name="last" type="text" placeholder="Last Name" required />
+                <input name="email" type="email" placeholder="Email Address" required />
+
+                <select name="country" required class="country-select">
+                  <option value="" disabled selected hidden>Select Country</option>
+
+                  <option value="United States">United States</option>
+                  <option value="Canada">Canada</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Australia">Australia</option>
+                  <option value="New Zealand">New Zealand</option>
+                  <option value="Ireland">Ireland</option>
+                  <option value="South Africa">South Africa</option>
+
+                  <option value="Afghanistan">Afghanistan</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Austria">Austria</option>
+                  <option value="Belgium">Belgium</option>
+                  <option value="Brazil">Brazil</option>
+                  <option value="Chile">Chile</option>
+                  <option value="China">China</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Denmark">Denmark</option>
+                  <option value="Finland">Finland</option>
+                  <option value="France">France</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Greece">Greece</option>
+                  <option value="India">India</option>
+                  <option value="Israel">Israel</option>
+                  <option value="Italy">Italy</option>
+                  <option value="Japan">Japan</option>
+                  <option value="Mexico">Mexico</option>
+                  <option value="Netherlands">Netherlands</option>
+                  <option value="Norway">Norway</option>
+                  <option value="Philippines">Philippines</option>
+                  <option value="Poland">Poland</option>
+                  <option value="Portugal">Portugal</option>
+                  <option value="Spain">Spain</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Switzerland">Switzerland</option>
+                  <option value="Turkey">Turkey</option>
+                  <option value="United Arab Emirates">United Arab Emirates</option>
+
+                  <option value="Other">Other</option>
+                </select>
+
+                <!-- Honeypot anti-bot field -->
+                <div class="hp-field" aria-hidden="true">
+                  <label>Leave this empty</label>
+                  <input type="text" name="company" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <button type="submit">Join the Club</button>
+              </form>
+
+              <p class="note">No spam. Leave anytime.</p>
+            </aside>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="bottom">
+        <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
+        <p class="social-line">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</p>
+
+        <div class="icons">
+          <a class="icon-btn ig" href="https://www.instagram.com/pageturnerbc/?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3zm-5 4a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.2-.9a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/>
+            </svg>
+          </a>
+
+          <a class="icon-btn fb" href="https://www.facebook.com/PageTurnerBookClub?ref=ptbc" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.6c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.5V12H17l-.4 3h-2.6v7A10 10 0 0 0 22 12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</body>
+</html>
+
