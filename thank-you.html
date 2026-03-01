@@ -18,27 +18,23 @@
 
   fbq('init', '1266134602043216');
   fbq('track', 'PageView');
-fbq('track', 'Lead');
+  fbq('track', 'Lead');
   </script>
 
   <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
     :root{
       --bg:#0b0f14;
-
       --paper:#efe6d8;
       --ink:#2b2620;
-
       --border: rgba(0,0,0,.14);
       --shadow: 0 22px 70px rgba(0,0,0,.55);
       --radius: 18px;
-
-      --muted: rgba(43,38,32,.72);
     }
 
     *{ box-sizing:border-box; }
@@ -75,7 +71,7 @@ fbq('track', 'Lead');
 
     .paper{
       width: min(760px, 92%);
-      background: linear-gradient(0deg, rgba(239,230,216,.96), rgba(239,230,216,.96));
+      background: rgba(239,230,216,.96);
       color: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -111,7 +107,6 @@ fbq('track', 'Lead');
       margin: 0 0 10px;
       font-size: 44px;
       line-height: 1.06;
-      letter-spacing: .15px;
       font-weight: 700;
     }
 
@@ -189,7 +184,6 @@ fbq('track', 'Lead');
       text-decoration:none;
       border: 1px solid rgba(0,0,0,.10);
       box-shadow: 0 12px 22px rgba(0,0,0,.16);
-      transform: translateY(0);
       transition: transform .12s ease, filter .12s ease;
     }
 
@@ -199,11 +193,7 @@ fbq('track', 'Lead');
     .ig{ background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4); }
     .fb{ background: #1877f2; }
 
-    .icon{
-      width: 30px;
-      height: 30px;
-      fill: #fff;
-    }
+    .icon{ width: 30px; height: 30px; fill: #fff; }
 
     @media (max-width: 560px){
       body{ padding: 12px; }
