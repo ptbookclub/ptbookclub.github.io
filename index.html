@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-    <!-- Social Preview (Facebook / iMessage / etc.) -->
+
+  <!-- Social Preview (Facebook / iMessage / etc.) -->
   <meta property="og:title" content="Page Turner Book Club — Free Books" />
   <meta property="og:description" content="Free books. Support authors. Fuel your next binge." />
   <meta property="og:url" content="https://ptbookclub.github.io/" />
@@ -14,7 +15,7 @@
   <meta property="og:image:height" content="1080" />
   <meta property="fb:app_id" content="933992829048362" />
 
-  <!-- Twitter preview (also helps sometimes) -->
+  <!-- Twitter preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Page Turner Book Club — Free Books" />
   <meta name="twitter:description" content="Free books. Support authors. Fuel your next binge." />
@@ -23,7 +24,7 @@
   <title>Page Turner Book Club — Free Books</title>
   <meta name="description" content="Free books. Support authors. Find your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
 
-  <!-- Meta Pixel Code -->
+  <!-- Meta Pixel Code (KEEP ONLY ONE COPY ON THIS PAGE) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -36,12 +37,12 @@
 
   fbq('init', '1266134602043216');
   fbq('track', 'PageView');
-
+  fbq('track', 'ViewContent');
   </script>
 
   <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
@@ -99,7 +100,7 @@
       position: relative;
     }
 
-    /* subtle paper grain (no image needed) */
+    /* subtle paper grain */
     .top-band:before{
       content:"";
       position:absolute; inset:0;
@@ -137,11 +138,10 @@
       color: var(--ink);
     }
 
-    /* Sentence splitting: desktop stays normal, mobile can force line breaks */
-   .top-copy .sentence{
-  display:inline;
-  white-space:normal;
-}
+    .top-copy .sentence{
+      display:inline;
+      white-space:normal;
+    }
 
     .top-copy .sentence + .sentence:before{
       content:" ";
@@ -291,17 +291,14 @@
       padding-right: 36px;
     }
 
-    /* Base text color once a country is selected */
     .custom-form select.country-select{
       color:#2b2620;
     }
 
-    /* Placeholder color when nothing is selected */
     .custom-form select.country-select:invalid{
       color: rgba(43,38,32,.65);
     }
 
-    /* button */
     .custom-form button{
       padding:12px;
       border-radius:999px;
@@ -386,7 +383,6 @@
       fill: #fff;
     }
 
-    /* Mobile */
     @media (max-width: 600px){
       .hero h1,
       .headline,
@@ -405,7 +401,7 @@
 
     @media (max-width: 520px){
       .logo{width: 118px}
-      .top-spacer{ display:none; } /* key: stop squeezing the center text */
+      .top-spacer{ display:none; }
       .top-inner{
         flex-direction:column;
         align-items:center;
@@ -420,11 +416,11 @@
         line-height: 1.18;
       }
       .top-copy .sentence{
-        display:block;         /* only break after each period */
+        display:block;
         white-space:normal;
       }
       .top-copy .sentence + .sentence:before{
-        content:"";            /* remove the desktop spaces */
+        content:"";
       }
 
       .hero-h1{font-size: 44px}
@@ -454,13 +450,13 @@
             <h1 class="hero-h1">Get Free Books</h1>
             <p class="genres">Mystery ★ Suspense ★ Thriller</p>
 
-         <a class="btn-primary"
-   href="https://books.bookfunnel.com/pageturnerbookclub2/r5obj5bdot"
-   target="_blank"
-   rel="noopener noreferrer"
-   onclick="fbq('trackCustom','PTBC_Mystery_Freebie_Click'); return true;">
-  TAKE ME TO THIS MONTH'S FREEBIES →
-</a>
+            <a class="btn-primary"
+              href="https://books.bookfunnel.com/pageturnerbookclub2/r5obj5bdot"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="try{fbq('trackCustom','PTBC_Mystery_Freebie_Click');}catch(e){} return true;">
+              TAKE ME TO THIS MONTH'S FREEBIES →
+            </a>
 
             <p class="subline">
               Join the club and mailing list for other free offers.
@@ -473,8 +469,9 @@
             <aside class="card" aria-label="Join the mailing list form">
               <h2>Free Offers Every Month</h2>
 
-              <form class="custom-form" method="POST" action="https://script.google.com/macros/s/AKfycbwzxEFF6bpEeaVjBFKvnjsgOB7P7FB-8WOBbj1dit9bAbsW8t3Fp4c9bjp2tweMu4h5iw/exec">
-               <input type="hidden" name="redirect" value="https://ptbookclub.github.io/thank-you.html" />
+              <!-- NOTE: no action/method; we submit via fetch below -->
+              <form class="custom-form" id="mysteryForm">
+                <input type="hidden" name="redirect" value="https://ptbookclub.github.io/thank-you.html" />
                 <input type="hidden" name="list" value="Mystery" />
                 <input type="hidden" name="source" value="PTBC Mystery" />
                 <input type="hidden" name="freebie" value="https://dl.bookfunnel.com/pyi5og1krr" />
@@ -564,5 +561,37 @@
 
     </section>
   </div>
+
+  <script>
+    // ✅ AJAX form submit: prevents navigation to script.google.com
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwzxEFF6bpEeaVjBFKvnjsgOB7P7FB-8WOBbj1dit9bAbsW8t3Fp4c9bjp2tweMu4h5iw/exec";
+    const THANK_YOU  = "https://ptbookclub.github.io/thank-you.html";
+
+    document.getElementById("mysteryForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+      const data = new FormData(form);
+
+      // basic honeypot safeguard (mirrors Apps Script)
+      if ((data.get("company") || "").toString().trim()) {
+        window.location.href = THANK_YOU;
+        return;
+      }
+
+      // Optional: disable button to prevent double submit
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.textContent = "Submitting..."; }
+
+      try {
+        // Apps Script usually doesn't provide CORS headers, so we use no-cors.
+        await fetch(SCRIPT_URL, { method: "POST", mode: "no-cors", body: data });
+      } catch (err) {
+        // Even if it errors (ad blocker, etc.), still redirect.
+      }
+
+      window.location.href = THANK_YOU;
+    });
+  </script>
 </body>
 </html>
