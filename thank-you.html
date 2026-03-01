@@ -71,7 +71,7 @@
 
     .paper{
       width: min(760px, 92%);
-      background: rgba(239,230,216,.96);
+      background: linear-gradient(0deg, rgba(239,230,216,.96), rgba(239,230,216,.96));
       color: var(--ink);
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -107,6 +107,7 @@
       margin: 0 0 10px;
       font-size: 44px;
       line-height: 1.06;
+      letter-spacing: .15px;
       font-weight: 700;
     }
 
@@ -184,6 +185,7 @@
       text-decoration:none;
       border: 1px solid rgba(0,0,0,.10);
       box-shadow: 0 12px 22px rgba(0,0,0,.16);
+      transform: translateY(0);
       transition: transform .12s ease, filter .12s ease;
     }
 
@@ -193,7 +195,11 @@
     .ig{ background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4); }
     .fb{ background: #1877f2; }
 
-    .icon{ width: 30px; height: 30px; fill: #fff; }
+    .icon{
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
 
     @media (max-width: 560px){
       body{ padding: 12px; }
