@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-    <!-- Social Preview (Facebook / iMessage / etc.) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <meta property="og:title" content="Page Turner Book Club — Free Books" />
   <meta property="og:description" content="Free books. Support authors. Fuel your next binge." />
   <meta property="og:url" content="https://ptbookclub.github.io/" />
@@ -14,7 +14,6 @@
   <meta property="og:image:height" content="1080" />
   <meta property="fb:app_id" content="933992829048362" />
 
-  <!-- Twitter preview (also helps sometimes) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Page Turner Book Club — Free Books" />
   <meta name="twitter:description" content="Free books. Support authors. Fuel your next binge." />
@@ -37,15 +36,13 @@
   fbq('init', '1266134602043216');
   fbq('track', 'PageView');
   </script>
-
   <noscript>
-  <img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1266134602043216&ev=PageView&noscript=1"/>
   </noscript>
   <!-- End Meta Pixel Code -->
 
   <style>
-    /* Honeypot: invisible to humans, bait for bots */
     .hp-field{
       position:absolute !important;
       left:-9999px !important;
@@ -60,12 +57,10 @@
       --text:#f3f0ea;
       --ink:#2b2620;
       --paper:#efe6d8;
-      --paper2:#e6dccd;
       --paperBorder: rgba(0,0,0,.10);
       --red:#b3161b;
       --red2:#7f0f13;
       --shadow: 0 18px 60px rgba(0,0,0,.55);
-      --radius:18px;
       --max: 1080px;
     }
 
@@ -87,9 +82,8 @@
       padding: 22px 18px 54px;
     }
 
-    /* Paper container */
     .top-band{
-      background: linear-gradient(0deg, rgba(239,230,216,.94), rgba(239,230,216,.94));
+      background: rgba(239,230,216,.94);
       color: var(--ink);
       border-radius: 18px;
       border: 1px solid var(--paperBorder);
@@ -98,7 +92,6 @@
       position: relative;
     }
 
-    /* subtle paper grain (no image needed) */
     .top-band:before{
       content:"";
       position:absolute; inset:0;
@@ -118,37 +111,22 @@
       gap: 16px;
     }
 
-    .logo{
-      width: 132px;
-      height: auto;
-      flex: 0 0 auto;
-      display:block;
-    }
+    .logo{ width: 132px; height:auto; display:block; }
 
     .top-copy{
       flex: 1 1 auto;
       text-align:center;
       font-size: 36px;
       line-height: 1.12;
-      letter-spacing: .2px;
       font-weight: 600;
       margin: 0;
       color: var(--ink);
     }
 
-    /* Sentence splitting: desktop stays normal, mobile can force line breaks */
-    .top-copy .sentence{
-      display:inline;
-      white-space:normal;
-    }
+    .top-copy .sentence{ display:inline; white-space:normal; }
+    .top-copy .sentence + .sentence:before{ content:" "; }
+    .top-spacer{ width: 132px; }
 
-    .top-copy .sentence + .sentence:before{
-      content:" ";
-    }
-
-    .top-spacer{ width: 132px; flex: 0 0 auto; }
-
-    /* Hero */
     .hero{
       position:relative;
       border-top: 1px solid rgba(0,0,0,.08);
@@ -165,17 +143,13 @@
       flex-direction:column;
     }
 
-    .hero-text{
-      text-align:center;
-      padding-top: 34px;
-    }
+    .hero-text{ text-align:center; padding-top: 34px; }
 
     .hero-h1{
       margin: 0 0 10px;
       font-size: 66px;
       line-height: 1.02;
       font-weight: 700;
-      letter-spacing: .3px;
       color: rgba(245,232,210,.98);
       text-shadow: 0 10px 30px rgba(0,0,0,.55);
     }
@@ -226,7 +200,6 @@
       transform: translateY(2px);
     }
 
-    /* Form card bottom-right */
     .form-wrap{
       margin-top:auto;
       display:flex;
@@ -236,7 +209,7 @@
 
     .card{
       width: min(380px, 100%);
-      background: linear-gradient(0deg, rgba(239,230,216,.92), rgba(239,230,216,.92));
+      background: rgba(239,230,216,.92);
       border: 1px solid rgba(255,255,255,.35);
       border-radius: 18px;
       box-shadow: var(--shadow);
@@ -251,11 +224,7 @@
       color: #2b2620;
     }
 
-    .custom-form{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
+    .custom-form{ display:flex; flex-direction:column; gap:12px; }
 
     .custom-form input,
     .custom-form select{
@@ -268,16 +237,11 @@
       font-family: Georgia, "Times New Roman", Times, serif;
       outline:none;
       height: 44px;
-      -webkit-appearance: none;
-      -moz-appearance: none;
       appearance: none;
     }
 
-    .custom-form input::placeholder{
-      color: rgba(43,38,32,.65);
-    }
+    .custom-form input::placeholder{ color: rgba(43,38,32,.65); }
 
-    /* dropdown arrow */
     .custom-form select{
       background-image:
         linear-gradient(45deg, transparent 50%, rgba(43,38,32,.75) 50%),
@@ -290,17 +254,9 @@
       padding-right: 36px;
     }
 
-    /* Base text color once a country is selected */
-    .custom-form select.country-select{
-      color:#2b2620;
-    }
+    .custom-form select.country-select{ color:#2b2620; }
+    .custom-form select.country-select:invalid{ color: rgba(43,38,32,.65); }
 
-    /* Placeholder color when nothing is selected */
-    .custom-form select.country-select:invalid{
-      color: rgba(43,38,32,.65);
-    }
-
-    /* button */
     .custom-form button{
       padding:12px;
       border-radius:999px;
@@ -323,7 +279,6 @@
       color: rgba(43,38,32,.75);
     }
 
-    /* Footer */
     .bottom{
       position:relative;
       padding: 18px 18px 20px;
@@ -345,25 +300,10 @@
 
     .bottom > *{ position:relative; }
 
-    .quote{
-      margin: 0 0 14px;
-      font-size: 22px;
-      font-style: italic;
-    }
+    .quote{ margin: 0 0 14px; font-size: 22px; font-style: italic; }
+    .social-line{ margin: 0 0 10px; font-size: 18px; font-weight: 700; letter-spacing: .5px; text-transform: uppercase; }
 
-    .social-line{
-      margin: 0 0 10px;
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: .5px;
-      text-transform: uppercase;
-    }
-
-    .icons{
-      display:flex;
-      justify-content:center;
-      gap: 14px;
-    }
+    .icons{ display:flex; justify-content:center; gap: 14px; }
 
     .icon-btn{
       width: 48px;
@@ -379,56 +319,18 @@
     .ig{ background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4); }
     .fb{ background: #1877f2; }
 
-    .icon{
-      width: 24px;
-      height: 24px;
-      fill: #fff;
-    }
-
-    /* Mobile */
-    @media (max-width: 600px){
-      .hero h1,
-      .headline,
-      .top-headline {
-        font-size: 34px !important;
-        line-height: 1.2 !important;
-        letter-spacing: 0.3px;
-        padding: 0 16px;
-      }
-
-      .hero {
-        padding-top: 40px;
-        padding-bottom: 30px;
-      }
-    }
+    .icon{ width: 24px; height: 24px; fill: #fff; }
 
     @media (max-width: 520px){
-      .logo{width: 118px}
-      .top-spacer{ display:none; } /* key: stop squeezing the center text */
-      .top-inner{
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        gap: 10px;
-        padding: 14px 14px;
-      }
-      .top-copy{
-        font-size: 28px;
-        width: 100%;
-        max-width: 26ch;
-        line-height: 1.18;
-      }
-      .top-copy .sentence{
-        display:block;         /* only break after each period */
-        white-space:normal;
-      }
-      .top-copy .sentence + .sentence:before{
-        content:"";            /* remove the desktop spaces */
-      }
+      .top-spacer{ display:none; }
+      .top-inner{ flex-direction:column; gap: 10px; padding: 14px 14px; }
+      .top-copy{ font-size: 28px; width: 100%; max-width: 26ch; line-height: 1.18; }
+      .top-copy .sentence{ display:block; }
+      .top-copy .sentence + .sentence:before{ content:""; }
 
       .hero-h1{font-size: 44px}
       .genres{font-size: 18px}
-      .hero{padding: 14px 14px 14px}
+      .hero{padding: 14px}
       .hero-inner{min-height: 620px}
     }
   </style>
@@ -467,14 +369,12 @@
             </p>
           </div>
 
-          <!-- Bottom-right form -->
           <div class="form-wrap">
             <aside class="card" aria-label="Join the mailing list form">
               <h2>Free Offers Every Month</h2>
 
-              <form id="mysteryForm" class="custom-form" method="POST"
-                action="https://script.google.com/macros/s/AKfycbwzxEFF6bpEeaVjBFKvnjsgOB7P7FB-8WOBbj1dit9bAbsW8t3Fp4c9bjp2tweMu4h5iw/exec">
-
+              <form class="custom-form" method="POST" action="PASTE_YOUR_MYSTERY_WEBAPP_EXEC_URL_HERE">
+                <input type="hidden" name="redirect" value="https://ptbookclub.github.io/thank-you.html" />
                 <input type="hidden" name="list" value="Mystery" />
                 <input type="hidden" name="source" value="PTBC Mystery" />
                 <input type="hidden" name="freebie" value="https://dl.bookfunnel.com/pyi5og1krr" />
@@ -523,7 +423,6 @@
                   <option value="Other">Other</option>
                 </select>
 
-                <!-- Honeypot anti-bot field -->
                 <div class="hp-field" aria-hidden="true">
                   <label>Leave this empty</label>
                   <input type="text" name="company" tabindex="-1" autocomplete="off" />
@@ -539,7 +438,6 @@
         </div>
       </div>
 
-      <!-- Footer -->
       <div class="bottom">
         <p class="quote">“Remember, your reviews are the only applause writers ever get.”</p>
         <p class="social-line">CLICK ICON TO FOLLOW FOR WEEKLY DEALS:</p>
@@ -561,32 +459,5 @@
 
     </section>
   </div>
-
-  <script>
-    (function () {
-      const form = document.getElementById("mysteryForm");
-      if (!form) return;
-
-      form.addEventListener("submit", async function (e) {
-        e.preventDefault();
-
-        const actionUrl = form.getAttribute("action");
-        const thankYouUrl = "https://ptbookclub.github.io/thank-you.html";
-        const fd = new FormData(form);
-
-        // Optional: if you ever want to track a submit click separately from Lead on TY:
-        // if (window.fbq) fbq('trackCustom', 'PTBC_Mystery_Form_Submit');
-
-        try {
-          // no-cors because Apps Script doesn’t send CORS headers
-          await fetch(actionUrl, { method: "POST", body: fd, mode: "no-cors" });
-        } catch (err) {
-          // Even if fetch errors (adblockers, privacy tools), still send them to TY.
-        }
-
-        window.location.href = thankYouUrl;
-      });
-    })();
-  </script>
 </body>
 </html>
