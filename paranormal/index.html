@@ -1,9 +1,10 @@
+<!-- paranormal/index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <!-- Social Preview (Facebook / iMessage / etc.) -->
   <meta property="og:title" content="Page Turner Book Club — Free Books" />
   <meta property="og:description" content="Free books. Support authors. Fuel your next binge." />
   <meta property="og:url" content="https://ptbookclub.github.io/" />
@@ -14,6 +15,7 @@
   <meta property="og:image:height" content="1080" />
   <meta property="fb:app_id" content="933992829048362" />
 
+  <!-- Twitter preview -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Page Turner Book Club — Free Books" />
   <meta name="twitter:description" content="Free books. Support authors. Fuel your next binge." />
@@ -22,7 +24,7 @@
   <title>Page Turner Book Club — Free Books</title>
   <meta name="description" content="Free books. Support authors. Find your next binge. Join Page Turner Book Club for weekly deals and author interviews." />
 
-  <!-- Meta Pixel Code (PageView only on index) -->
+  <!-- Meta Pixel Code (INDEX = PageView only) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -132,7 +134,7 @@
       border-top: 1px solid rgba(0,0,0,.08);
       background:
         linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.22) 40%, rgba(0,0,0,.55)),
-        url("assets/banner.jpg") center/cover no-repeat;
+        url("/assets/banner.jpg") center/cover no-repeat;
       padding: 18px 20px 18px;
     }
 
@@ -341,7 +343,7 @@
     <section class="top-band">
 
       <div class="top-inner">
-        <img class="logo" src="assets/logo.png" alt="Page Turner Book Club logo" />
+        <img class="logo" src="/assets/logo.png" alt="Page Turner Book Club logo" />
         <p class="top-copy">
           <span class="sentence">Free books.</span><span class="sentence">Support authors.</span><span class="sentence">Find your next binge.</span>
         </p>
@@ -353,13 +355,13 @@
 
           <div class="hero-text">
             <h1 class="hero-h1">Get Free Books</h1>
-            <p class="genres">Mystery ★ Suspense ★ Thriller</p>
+            <p class="genres">Paranormal ★ Supernatural ★ Thriller</p>
 
             <a class="btn-primary"
-              href="https://books.bookfunnel.com/pageturnerbookclub2/r5obj5bdot"
+              href="https://books.bookfunnel.com/pageturnerbookclub/75snt43yf5"
               target="_blank"
               rel="noopener noreferrer"
-              onclick="fbq('trackCustom','PTBC_Mystery_Freebie_Click'); return true;">
+              onclick="fbq('trackCustom','PTBC_Paranormal_Freebie_Click'); return true;">
               TAKE ME TO THIS MONTH'S FREEBIES →
             </a>
 
@@ -373,6 +375,7 @@
             <aside class="card" aria-label="Join the mailing list form">
               <h2>Free Offers Every Month</h2>
 
+              <!-- ✅ Hidden iframe prevents top-level navigation to script.google.com -->
               <iframe name="ptbc_hidden_iframe" id="ptbc_hidden_iframe" style="display:none;"></iframe>
 
               <form id="ptbcForm"
@@ -381,9 +384,10 @@
                     target="ptbc_hidden_iframe"
                     action="https://script.google.com/macros/s/AKfycbwzxEFF6bpEeaVjBFKvnjsgOB7P7FB-8WOBbj1dit9bAbsW8t3Fp4c9bjp2tweMu4h5iw/exec">
 
-                <input type="hidden" name="list" value="Mystery" />
-                <input type="hidden" name="source" value="PTBC Mystery" />
-                <input type="hidden" name="freebie" value="https://dl.bookfunnel.com/pyi5og1krr" />
+                <!-- IMPORTANT: no redirect field posted to Apps Script when using iframe redirect -->
+                <input type="hidden" name="list" value="Paranormal" />
+                <input type="hidden" name="source" value="PTBC Para" />
+                <input type="hidden" name="freebie" value="https://dl.bookfunnel.com/hklgwfy7h9" />
 
                 <input name="first" type="text" placeholder="First Name" required />
                 <input name="last" type="text" placeholder="Last Name" required />
@@ -446,24 +450,16 @@
                   const btn = document.getElementById("ptbcSubmit");
 
                   let submitted = false;
-                  let redirected = false;
-
-                  function goThankYou(){
-                    if (redirected) return;
-                    redirected = true;
-                    window.location.href = "https://ptbookclub.github.io/thank-you.html";
-                  }
 
                   form.addEventListener("submit", function(){
                     submitted = true;
                     btn.disabled = true;
                     btn.textContent = "Sending…";
-                    setTimeout(goThankYou, 1200);
                   });
 
                   iframe.addEventListener("load", function(){
                     if (!submitted) return;
-                    goThankYou();
+                    window.location.href = "https://ptbookclub.github.io/paranormal/thank-you.html";
                   });
                 })();
               </script>
